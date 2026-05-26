@@ -1,4 +1,4 @@
-﻿// ============ TRADUÇÕES ============
+// ============ TRADUÇÕES ============
 const TRANSLATIONS = {
   pt: {
     nav_projects: 'Projetos',
@@ -93,16 +93,13 @@ function applyLanguage(lang) {
     }
   });
 
-  // Atualizar botões
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
   });
 
-  // Reaplicar o live counter com a tradução nova
   updateGameData();
 }
 
-// Listener dos botões
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
@@ -114,16 +111,12 @@ function t(key) {
   return TRANSLATIONS[currentLang][key] || key;
 }
 
+
 // ============ CONFIGURAÇÃO ============
 const PLACE_ID = '140401030463294';
 
-// roproxy.com é um proxy gratuito da comunidade Roblox
-// com CORS habilitado — funciona direto do navegador
-const API_BASE = {
-  apis: 'https://apis.roproxy.com',
-  games: 'https://games.roproxy.com',
-  thumbnails: 'https://thumbnails.roproxy.com'
-};
+// Nosso backend (Cloudflare Worker) — cacheia dados do Roblox a cada 1min
+const API_URL = 'https://krysthiandev-api.krysthianbar7.workers.dev/';
 
 // ============ FORMATADORES ============
 function formatNumber(num) {
@@ -137,7 +130,6 @@ function updateClock() {
   const clockEl = document.getElementById('clock');
   if (!clockEl) return;
 
-  // Toledo está em UTC-3 (Brasília)
   const now = new Date();
   const utc = now.getTime() + now.getTimezoneOffset() * 60000;
   const toledo = new Date(utc + -3 * 3600000);
@@ -152,70 +144,40 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-// ============ API ROBLOX (via roproxy) ============
-async function getUniverseId(placeId) {
+// ============ FETCH DO WORKER ============
+async function fetchGameData() {
   try {
-    const r = await fetch(`${API_BASE.apis}/universes/v1/places/${placeId}/universe`);
-    const data = await r.json();
-    return data.universeId;
+    const r = await fetch(API_URL);
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return await r.json();
   } catch (err) {
-    console.error('Erro ao buscar Universe ID:', err);
+    console.error('Erro ao buscar dados:', err);
     return null;
   }
 }
 
-async function getGameInfo(universeId) {
-  try {
-    const r = await fetch(`${API_BASE.games}/v1/games?universeIds=${universeId}`);
-    const data = await r.json();
-    return data.data && data.data[0];
-  } catch (err) {
-    console.error('Erro ao buscar info do jogo:', err);
-    return null;
-  }
-}
-
-async function getGameThumbnail(universeId) {
-  try {
-    const r = await fetch(`${API_BASE.thumbnails}/v1/games/icons?universeIds=${universeId}&size=512x512&format=Png&isCircular=false`);
-    const data = await r.json();
-    return data.data && data.data[0] && data.data[0].imageUrl;
-  } catch (err) {
-    console.error('Erro ao buscar thumbnail:', err);
-    return null;
-  }
-}
-
-// ============ ATUALIZAR DADOS ============
+// ============ ATUALIZAR UI ============
 async function updateGameData() {
   const liveText = document.getElementById('live-text');
+  const data = await fetchGameData();
 
-  const universeId = await getUniverseId(PLACE_ID);
-  if (!universeId) {
+  if (!data || data.error) {
     liveText.textContent = t('live_error');
     return;
   }
 
-  // Pegar info do jogo
-  const gameInfo = await getGameInfo(universeId);
-  if (gameInfo) {
-    const visits = gameInfo.visits || 0;
-    const playing = gameInfo.playing || 0;
-    const name = gameInfo.name || 'Simulador de Pneu';
+  const { visits = 0, playing = 0, name = 'Simulador de Pneu', thumbUrl } = data;
 
-    document.getElementById(`game-title-${PLACE_ID}`).textContent = name;
-    document.getElementById(`game-visits-${PLACE_ID}`).textContent = formatNumber(visits);
-    document.getElementById(`game-playing-${PLACE_ID}`).textContent = formatNumber(playing);
-    document.getElementById('total-visits').textContent = formatNumber(visits);
+  document.getElementById(`game-title-${PLACE_ID}`).textContent = name;
+  document.getElementById(`game-visits-${PLACE_ID}`).textContent = formatNumber(visits);
+  document.getElementById(`game-playing-${PLACE_ID}`).textContent = formatNumber(playing);
+  document.getElementById('total-visits').textContent = formatNumber(visits);
 
-    const playerText = playing === 1
-      ? t('live_one')
-      : t('live_many').replace('{n}', formatNumber(playing));
-    liveText.textContent = playerText;
-  }
+  const playerText = playing === 1
+    ? t('live_one')
+    : t('live_many').replace('{n}', formatNumber(playing));
+  liveText.textContent = playerText;
 
-  // Pegar thumbnail
-  const thumbUrl = await getGameThumbnail(universeId);
   if (thumbUrl) {
     document.getElementById(`game-thumb-${PLACE_ID}`).src = thumbUrl;
   }
@@ -224,5 +186,5 @@ async function updateGameData() {
 // Carregar imediatamente
 updateGameData();
 
-// Atualizar a cada 30 segundos
-setInterval(updateGameData, 30000);
+// Atualizar a cada 60s (o Worker atualiza o cache a cada 1min, então faz sentido)
+setInterval(updateGameData, 60000);
