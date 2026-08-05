@@ -21,7 +21,7 @@ const TRANSLATIONS = {
     cover_soon: 'Capa em breve',
     status_wip: 'Em desenvolvimento',
     game_fighters_genre: 'Anime fighters · Gacha e progressão',
-    game_fighters_desc: 'O jogador invoca lutadores aleatórios, monta e treina a equipe e avança por mundos temáticos. Cada chefe derrotado libera a região seguinte, com personagens mais fortes para colecionar.',
+    game_fighters_desc: 'Anime fighters com o elenco inteiro trocado por brainrots: os lutadores invocados, os NPCs e os chefes. O jogador invoca personagens aleatórios, monta e treina a equipe e avança por mundos temáticos, liberando a região seguinte a cada chefe derrotado.',
     tag_gacha: 'Sistema gacha',
     tag_worlds: 'Progressão de mundos',
     tag_bosses: 'Chefes',
@@ -59,6 +59,9 @@ const TRANSLATIONS = {
     ui_icon_note: 'Arte quadrada para a miniatura de busca e a página do jogo na Roblox.',
     aria_expand: 'Expandir vídeo',
     aria_close: 'Fechar',
+    aria_play: 'Reproduzir',
+    aria_pause: 'Pausar',
+    aria_seek: 'Posição do vídeo',
     sec_04: '04 / contato',
     contact_title: 'Vamos criar',
     contact_title_2: 'algo.',
@@ -95,7 +98,7 @@ const TRANSLATIONS = {
     cover_soon: 'Cover coming soon',
     status_wip: 'In development',
     game_fighters_genre: 'Anime fighters · Gacha and progression',
-    game_fighters_desc: 'Players summon random fighters, build and train a squad, and advance through themed worlds. Each boss defeated unlocks the next region, with stronger characters to collect.',
+    game_fighters_desc: 'Anime fighters with the entire cast swapped for brainrots: the summoned fighters, the NPCs and the bosses. Players summon random characters, build and train a squad and advance through themed worlds, unlocking the next region with each boss defeated.',
     tag_gacha: 'Gacha system',
     tag_worlds: 'World progression',
     tag_bosses: 'Bosses',
@@ -133,6 +136,9 @@ const TRANSLATIONS = {
     ui_icon_note: 'Square art for the search thumbnail and game page on Roblox.',
     aria_expand: 'Expand video',
     aria_close: 'Close',
+    aria_play: 'Play',
+    aria_pause: 'Pause',
+    aria_seek: 'Video position',
     sec_04: '04 / contact',
     contact_title: 'Let\'s build',
     contact_title_2: 'something.',
@@ -165,6 +171,15 @@ function detectLanguage() {
 
 let currentLang = detectLanguage();
 
+function t(key) {
+  const dict = TRANSLATIONS[currentLang] || {};
+  return dict[key] !== undefined ? dict[key] : key;
+}
+
+// Rótulos que dependem do estado (ex.: pausar/reproduzir) não podem sair do
+// HTML: precisam ser reescritos quando o idioma muda.
+const labelSyncers = [];
+
 function applyLanguage(lang, persist = true) {
   currentLang = lang;
   if (persist) localStorage.setItem('lang', lang);
@@ -185,6 +200,8 @@ function applyLanguage(lang, persist = true) {
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
   });
+
+  labelSyncers.forEach(sync => sync());
 }
 
 // ============ RELÓGIO ============
@@ -207,14 +224,15 @@ setInterval(updateClock, 1000);
 updateClock();
 
 // ============ VÍDEOS DOS SISTEMAS ============
-// Só carrega e toca quando o card entra na tela; pausa ao sair para não gastar banda.
+// Tocam sozinhos ao entrar na tela e pausam ao sair, para não gastar banda.
+// A barra de controle permite pausar e navegar pelos segundos.
 function setupSystemVideos() {
-  const videos = document.querySelectorAll('.system-video');
+  const videos = [...document.querySelectorAll('.system-video')];
   if (!videos.length) return;
 
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  // Guarda quais vídeos estão na tela para poder retomar depois.
+  // Vídeos que o visitante pausou na mão. Nunca voltam a tocar sozinhos:
+  // se o autoplay ignorasse isso, rolar a página desfaria a escolha dele.
+  const heldPaused = new Set();
   const visible = new Set();
 
   // play() é assíncrono: pausar antes dele resolver dispara AbortError e o vídeo
@@ -231,12 +249,136 @@ function setupSystemVideos() {
       .catch(() => {});
   }
 
+  function fmt(seconds) {
+    const s = isFinite(seconds) && seconds > 0 ? seconds : 0;
+    return Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+  }
+
+  videos.forEach(video => {
+    const media = video.closest('.system-media');
+    const playBtn = media.querySelector('.vc-play');
+    const track = media.querySelector('.vc-track');
+    const fill = media.querySelector('.vc-fill');
+    const timeEl = media.querySelector('.vc-time');
+
+    // preload="none" adia os metadados, então a duração vem do HTML para o
+    // relógio não nascer zerado.
+    const declared = parseFloat(video.dataset.duration) || 0;
+    const duration = () => (isFinite(video.duration) && video.duration > 0) ? video.duration : declared;
+
+    let scrubbing = false;
+    let pendingSeek = null; // posição pedida antes dos metadados carregarem
+
+    function paint() {
+      const dur = duration();
+      const at = pendingSeek !== null ? pendingSeek : video.currentTime;
+      const pct = dur ? Math.min(100, Math.max(0, (at / dur) * 100)) : 0;
+      fill.style.width = pct + '%';
+      timeEl.textContent = fmt(at) + ' / ' + fmt(dur);
+      track.setAttribute('aria-valuenow', Math.round(pct));
+      track.setAttribute('aria-valuetext', fmt(at) + ' / ' + fmt(dur));
+    }
+
+    function reflect() {
+      playBtn.classList.toggle('is-paused', video.paused);
+      playBtn.setAttribute('aria-label', t(video.paused ? 'aria_play' : 'aria_pause'));
+    }
+    labelSyncers.push(reflect);
+
+    function seekTo(seconds) {
+      const dur = duration();
+      if (!dur) return;
+      const target = Math.min(dur, Math.max(0, seconds));
+
+      // Sem metadados carregados, atribuir currentTime não pega. Guarda a posição
+      // e aplica assim que o vídeo souber a própria duração.
+      if (video.readyState === 0) {
+        pendingSeek = target;
+        video.preload = 'metadata';
+        video.load();
+      } else {
+        pendingSeek = null;
+        video.currentTime = target;
+      }
+      paint();
+    }
+
+    playBtn.addEventListener('click', () => {
+      if (video.paused) {
+        heldPaused.delete(video);
+        play(video);
+      } else {
+        heldPaused.add(video);
+        pause(video);
+      }
+    });
+
+    function seekFromPointer(clientX) {
+      const box = track.getBoundingClientRect();
+      if (!box.width) return;
+      seekTo(((clientX - box.left) / box.width) * duration());
+    }
+
+    track.addEventListener('pointerdown', e => {
+      scrubbing = true;
+      track.classList.add('is-scrubbing');
+      track.setPointerCapture(e.pointerId);
+      seekFromPointer(e.clientX);
+      e.preventDefault();
+    });
+
+    track.addEventListener('pointermove', e => {
+      if (scrubbing) seekFromPointer(e.clientX);
+    });
+
+    function endScrub(e) {
+      if (!scrubbing) return;
+      scrubbing = false;
+      track.classList.remove('is-scrubbing');
+      if (e.pointerId != null && track.hasPointerCapture(e.pointerId)) {
+        track.releasePointerCapture(e.pointerId);
+      }
+    }
+    track.addEventListener('pointerup', endScrub);
+    track.addEventListener('pointercancel', endScrub);
+
+    track.addEventListener('keydown', e => {
+      const dur = duration();
+      if (!dur) return;
+      const step = e.shiftKey ? 1 : 5;
+      if (e.key === 'ArrowLeft') seekTo(video.currentTime - step);
+      else if (e.key === 'ArrowRight') seekTo(video.currentTime + step);
+      else if (e.key === 'Home') seekTo(0);
+      else if (e.key === 'End') seekTo(dur);
+      else if (e.key === ' ' || e.key === 'Enter') playBtn.click();
+      else return;
+      e.preventDefault();
+    });
+
+    video.addEventListener('loadedmetadata', () => {
+      if (pendingSeek !== null) {
+        video.currentTime = pendingSeek;
+        pendingSeek = null;
+      }
+      paint();
+    });
+    video.addEventListener('timeupdate', () => { if (!scrubbing) paint(); });
+    video.addEventListener('play', reflect);
+    video.addEventListener('pause', reflect);
+
+    reflect();
+    paint();
+  });
+
+  // Quem pediu menos animação recebe os controles, mas nada começa sozinho.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       const video = entry.target;
       if (entry.isIntersecting) {
         visible.add(video);
-        play(video);
+        if (!heldPaused.has(video)) play(video);
       } else {
         visible.delete(video);
         pause(video);
@@ -247,11 +389,11 @@ function setupSystemVideos() {
   videos.forEach(video => observer.observe(video));
 
   // O navegador pausa vídeo mudo quando a aba vai para segundo plano e o observer
-  // não dispara de novo na volta — sem isso o vídeo ficaria congelado no lugar.
+  // não dispara de novo na volta: sem isso o vídeo ficaria congelado no lugar.
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) return;
     visible.forEach(video => {
-      if (video.paused) play(video);
+      if (video.paused && !heldPaused.has(video)) play(video);
     });
   });
 }

@@ -148,7 +148,7 @@
               </span>
             </div>
             <span class="game-genre" data-i18n="game_fighters_genre">Anime fighters · Gacha e progressão</span>
-            <p class="game-desc" data-i18n="game_fighters_desc">O jogador invoca lutadores aleatórios, monta e treina a equipe e avança por mundos temáticos. Cada chefe derrotado libera a região seguinte, com personagens mais fortes para colecionar.</p>
+            <p class="game-desc" data-i18n="game_fighters_desc">Anime fighters com o elenco inteiro trocado por brainrots: os lutadores invocados, os NPCs e os chefes. O jogador invoca personagens aleatórios, monta e treina a equipe e avança por mundos temáticos, liberando a região seguinte a cada chefe derrotado.</p>
             <ul class="game-tags">
               <li class="game-tag" data-i18n="tag_gacha">Sistema gacha</li>
               <li class="game-tag" data-i18n="tag_worlds">Progressão de mundos</li>
@@ -212,13 +212,30 @@
                    muted loop playsinline preload="none"
                    poster="media/server-match-teleport.jpg"
                    src="media/server-match-teleport.mp4"
+                   data-duration="11.4"
                    data-title="Server Match Teleport"></video>
-            <span class="system-time">0:11</span>
-            <button class="system-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/>
-              </svg>
-            </button>
+            <div class="video-controls">
+              <!-- aria-label é reescrito pelo JS conforme o vídeo toca ou pausa -->
+              <button class="vc-play" aria-label="Pausar">
+                <svg class="icon-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>
+                </svg>
+                <svg class="icon-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z"/>
+                </svg>
+              </button>
+              <div class="vc-track" role="slider" tabindex="0"
+                   aria-label="Posição do vídeo" data-i18n-aria="aria_seek"
+                   aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="vc-fill"><span class="vc-handle"></span></div>
+              </div>
+              <span class="vc-time">0:00 / 0:11</span>
+              <button class="system-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/>
+                </svg>
+              </button>
+            </div>
           </div>
           <div class="system-body">
             <h3 class="system-title">Server Match Teleport</h3>
@@ -239,13 +256,30 @@
                    muted loop playsinline preload="none"
                    poster="media/sistema-combate.jpg"
                    src="media/sistema-combate.mp4"
+                   data-duration="15.8"
                    data-title="Sistema de Combate"></video>
-            <span class="system-time">0:16</span>
-            <button class="system-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/>
-              </svg>
-            </button>
+            <div class="video-controls">
+              <!-- aria-label é reescrito pelo JS conforme o vídeo toca ou pausa -->
+              <button class="vc-play" aria-label="Pausar">
+                <svg class="icon-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>
+                </svg>
+                <svg class="icon-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z"/>
+                </svg>
+              </button>
+              <div class="vc-track" role="slider" tabindex="0"
+                   aria-label="Posição do vídeo" data-i18n-aria="aria_seek"
+                   aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="vc-fill"><span class="vc-handle"></span></div>
+              </div>
+              <span class="vc-time">0:00 / 0:16</span>
+              <button class="system-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/>
+                </svg>
+              </button>
+            </div>
           </div>
           <div class="system-body">
             <h3 class="system-title" data-i18n="sys_combat_title">Sistema de Combate</h3>
