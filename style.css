@@ -435,46 +435,183 @@ button {
   margin-top: 6px;
 }
 
-/* ============ LIVE COUNTER ============ */
-.live-counter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 16px 24px;
-  margin: 0 auto;
-  width: fit-content;
-  min-width: 280px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  font-size: 14px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-/* ============ PROJECTS ============ */
-.projects-grid {
+/* ============ SYSTEMS ============ */
+.systems-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: var(--max-width);
+  width: 100%;
 }
 
-@media (max-width: 1023px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .projects-grid {
+@media (max-width: 900px) {
+  .systems-grid {
     grid-template-columns: 1fr;
   }
 }
 
-.project-card {
+.system-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.system-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Borda gradiente no hover, igual aos cards antigos */
+.system-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.5), rgba(6, 182, 212, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.system-card:hover::before {
+  opacity: 1;
+}
+
+.system-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  overflow: hidden;
+}
+
+.system-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.system-time {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  padding: 3px 7px;
+  border-radius: 6px;
+  background: rgba(10, 10, 15, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.85);
+  pointer-events: none;
+}
+
+.system-expand {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(10, 10, 15, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: rgba(255, 255, 255, 0.85);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: all 0.25s;
+}
+
+.system-card:hover .system-expand,
+.system-expand:focus-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.system-expand:hover {
+  color: var(--color-accent-2);
+  border-color: rgba(6, 182, 212, 0.4);
+}
+
+/* Em telas de toque não existe hover: botão sempre visível */
+@media (hover: none) {
+  .system-expand {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.system-body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.system-title {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.system-desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--color-dim);
+}
+
+.system-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  margin-top: 2px;
+}
+
+.system-tag {
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(6, 182, 212, 0.08));
+  border: 1px solid rgba(168, 85, 247, 0.22);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ============ UI GALLERY ============ */
+/* 4 assets em 2x2: fecha a grade sem deixar célula vazia */
+.ui-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: var(--max-width);
+  width: 100%;
+}
+
+@media (max-width: 560px) {
+  .ui-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ui-card {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(20px);
@@ -483,113 +620,130 @@ button {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s;
-  max-width: 85%;
-}
-
-.project-card:hover {
-  transform: translateY(-4px);
-}
-
-.project-image-wrapper {
+  cursor: zoom-in;
   position: relative;
-  aspect-ratio: 1;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s;
+}
+
+.ui-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(6, 182, 212, 0.3);
+}
+
+.ui-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
   background: var(--color-surface);
 }
 
-.project-image {
+.ui-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s;
 }
 
-.project-card:hover .project-image {
-  transform: scale(1.05);
+/* Assets soltos (slot, emblemas) respiram melhor com contain */
+.ui-media-contain {
+  background:
+    radial-gradient(circle at 50% 40%, rgba(168, 85, 247, 0.08), transparent 70%),
+    var(--color-surface);
 }
 
-.project-badge {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 10px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 4px 8px;
-  border-radius: 6px;
+.ui-media-contain img {
+  object-fit: contain;
+  padding: 14px;
 }
 
-.badge-owner {
-  background: rgba(133, 77, 14, 0.5);
-  color: #fcd34d;
-  border: 1px solid rgba(234, 179, 8, 0.4);
+.ui-card:hover .ui-media img {
+  transform: scale(1.04);
 }
 
-.project-info {
+.ui-caption {
   padding: 14px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 5px;
+  border-top: 1px solid var(--color-border);
 }
 
-.project-title {
-  font-size: 12px;
+.ui-name {
+  font-size: 14px;
   font-weight: 600;
-  line-height: 1.3;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  letter-spacing: -0.01em;
 }
 
-.project-stats {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-
-.project-stat {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.stat-mini-label {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+.ui-note {
+  font-size: 13px;
+  line-height: 1.55;
   color: var(--color-dim);
 }
 
-.stat-mini-value {
-  font-size: 17px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  font-variant-numeric: tabular-nums;
-}
-
-.project-cta {
+/* ============ LIGHTBOX ============ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 8px;
-  border-radius: 10px;
-  background: rgba(168, 85, 247, 0.08);
-  border: 1px solid rgba(168, 85, 247, 0.2);
-  color: var(--color-accent);
-  font-size: 10px;
-  font-weight: 600;
-  transition: background 0.2s;
+  padding: 32px;
+  background: rgba(5, 5, 10, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: fade-in 0.25s ease;
 }
 
-.project-card:hover .project-cta {
-  background: rgba(168, 85, 247, 0.15);
+.lightbox[hidden] {
+  display: none;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.lightbox-video,
+.lightbox-img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+
+.lightbox-video[hidden],
+.lightbox-img[hidden] {
+  display: none;
+}
+
+.lightbox-img {
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.2s;
+}
+
+.lightbox-close:hover {
+  color: var(--color-accent-2);
+  border-color: rgba(6, 182, 212, 0.4);
+}
+
+@media (max-width: 640px) {
+  .lightbox {
+    padding: 16px;
+  }
 }
 
 /* ============ CONTACT ============ */
@@ -945,58 +1099,6 @@ button {
   z-index: 1;
 }
 
-/* Card de projeto: brilho sutil ciano no hover */
-.project-card {
-  position: relative;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s !important;
-}
-
-.project-card::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.5), rgba(6, 182, 212, 0.3));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.4s;
-  pointer-events: none;
-}
-
-.project-card:hover::before {
-  opacity: 1;
-}
-
-.project-card:hover {
-  transform: translateY(-6px) !important;
-}
-
-/* CTA do card: gradiente sutil */
-.project-cta {
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(6, 182, 212, 0.08)) !important;
-  border-color: rgba(168, 85, 247, 0.25) !important;
-  position: relative;
-  overflow: hidden;
-}
-
-.project-cta::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.2), transparent);
-  transition: left 0.6s;
-}
-
-.project-card:hover .project-cta::after {
-  left: 100%;
-}
-
 /* Card lateral (stats) com borda gradiente */
 .hero-card {
   position: relative;
@@ -1053,30 +1155,6 @@ button {
   color: var(--color-accent-2) !important;
   border-color: rgba(6, 182, 212, 0.4) !important;
   box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
-}
-
-/* Live counter com glow animado */
-.live-counter {
-  position: relative;
-}
-
-.live-counter::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: linear-gradient(90deg, rgba(168, 85, 247, 0.3), rgba(6, 182, 212, 0.3), rgba(168, 85, 247, 0.3));
-  background-size: 200% 100%;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  padding: 1px;
-  animation: shimmer 4s linear infinite;
-}
-
-@keyframes shimmer {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 200% 0%; }
 }
 
 /* ============ LANG SWITCH ============ */

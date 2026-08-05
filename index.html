@@ -22,7 +22,8 @@
       <span class="logo-text">Krysthian</span>
     </a>
     <nav class="nav">
-      <a href="#projects" class="nav-link" data-i18n="nav_projects">Projetos</a>
+      <a href="#systems" class="nav-link" data-i18n="nav_systems">Sistemas</a>
+      <a href="#ui" class="nav-link" data-i18n="nav_ui">UI</a>
       <a href="#contact" class="nav-link" data-i18n="nav_contact">Contato</a>
       <div class="lang-switch">
         <button class="lang-btn" data-lang="en">EN</button>
@@ -66,7 +67,7 @@
                 <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
               </svg>
             </a>
-            <a href="#projects" class="btn-secondary" data-i18n="btn_works">Ver trabalhos</a>
+            <a href="#systems" class="btn-secondary" data-i18n="btn_works">Ver trabalhos</a>
           </div>
         </div>
 
@@ -82,12 +83,12 @@
               <span class="stat-value">2</span>
             </div>
             <div class="stat-row">
-              <span class="stat-label" data-i18n="card_games">Jogos publicados</span>
-              <span class="stat-value" id="games-count">1</span>
+              <span class="stat-label" data-i18n="card_systems">Sistemas no portfólio</span>
+              <span class="stat-value">2</span>
             </div>
             <div class="stat-row">
-              <span class="stat-label" data-i18n="card_visits">Total de visitas</span>
-              <span class="stat-value" id="total-visits">—</span>
+              <span class="stat-label" data-i18n="card_response">Tempo de resposta</span>
+              <span class="stat-value">&lt; 24h</span>
             </div>
           </div>
           <div class="divider"></div>
@@ -99,56 +100,123 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section">
+    <!-- SYSTEMS -->
+    <section id="systems" class="section">
       <div class="section-header">
         <div>
           <span class="section-number" data-i18n="sec_01">01 / trabalhos</span>
-          <h2 class="section-title" data-i18n="sec_projects">Projetos</h2>
-          <p class="section-subtitle" data-i18n="sec_projects_sub">Jogos que publiquei na Roblox.</p>
+          <h2 class="section-title" data-i18n="sec_systems">Sistemas</h2>
+          <p class="section-subtitle" data-i18n="sec_systems_sub">Sistemas que desenvolvi no Roblox Studio, gravados em teste real.</p>
         </div>
       </div>
 
-      <div class="live-counter" id="live-counter">
-        <span class="pulse-dot"></span>
-        <span id="live-text" data-i18n="live_loading">Carregando jogadores online...</span>
+      <div class="systems-grid">
+        <article class="system-card">
+          <div class="system-media">
+            <video class="system-video"
+                   muted loop playsinline preload="none"
+                   poster="media/server-match-teleport.jpg"
+                   src="media/server-match-teleport.mp4"
+                   data-title="Server Match Teleport"></video>
+            <span class="system-time">0:11</span>
+            <button class="system-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/>
+              </svg>
+            </button>
+          </div>
+          <div class="system-body">
+            <h3 class="system-title">Server Match Teleport</h3>
+            <p class="system-desc" data-i18n="sys_teleport_desc">Sistema de matchmaking que forma a fila, aguarda os jogadores necessários e teleporta todos juntos para um servidor exclusivo da partida. A interface mostra o status da busca e a fila em tempo real, com opção de cancelar.</p>
+            <ul class="system-tags">
+              <li class="system-tag">TeleportService</li>
+              <li class="system-tag" data-i18n="tag_matchmaking">Matchmaking</li>
+              <li class="system-tag" data-i18n="tag_queue">Fila de jogadores</li>
+              <li class="system-tag" data-i18n="tag_reserved">Servidor exclusivo</li>
+              <li class="system-tag">Luau</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="system-card">
+          <div class="system-media">
+            <video class="system-video"
+                   muted loop playsinline preload="none"
+                   poster="media/sistema-combate.jpg"
+                   src="media/sistema-combate.mp4"
+                   data-title="Sistema de Combate"></video>
+            <span class="system-time">0:16</span>
+            <button class="system-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/>
+              </svg>
+            </button>
+          </div>
+          <div class="system-body">
+            <h3 class="system-title" data-i18n="sys_combat_title">Sistema de Combate</h3>
+            <p class="system-desc" data-i18n="sys_combat_desc">Combate corpo a corpo com combo de três variações de soco encadeadas. O personagem corre e executa dash, com barras de vida e stamina controlando o gasto de cada ação.</p>
+            <ul class="system-tags">
+              <li class="system-tag" data-i18n="tag_combo">Combo de 3 golpes</li>
+              <li class="system-tag">Dash</li>
+              <li class="system-tag" data-i18n="tag_sprint">Corrida</li>
+              <li class="system-tag">Stamina</li>
+              <li class="system-tag" data-i18n="tag_hit">Detecção de acerto</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- UI & ART -->
+    <section id="ui" class="section">
+      <div class="section-header">
+        <div>
+          <span class="section-number" data-i18n="sec_02">02 / interface</span>
+          <h2 class="section-title" data-i18n="sec_ui">UI &amp; Arte</h2>
+          <p class="section-subtitle" data-i18n="sec_ui_sub">Interfaces e assets visuais que criei para jogos na Roblox.</p>
+        </div>
       </div>
 
-      <div class="projects-grid">
-        <a href="https://www.roblox.com/games/140401030463294" target="_blank" rel="noopener" class="project-card" data-universe-id="140401030463294">
-          <div class="project-image-wrapper">
-            <img src="https://tr.rbxcdn.com/180DAY-placeholder/512/512/Image/Png/noFilter"
-                 alt="Simulador de Pneu"
-                 class="project-image"
-                 id="game-thumb-140401030463294">
-            <span class="project-badge badge-owner">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"/>
-                <path d="M5 21h14"/>
-              </svg>
-              <span data-i18n="badge_owner">Dono</span>
-            </span>
+      <div class="ui-grid">
+        <figure class="ui-card">
+          <div class="ui-media">
+            <img src="media/ui-passes-vip.webp" alt="Loja de passes e VIP" loading="lazy" width="1265" height="798">
           </div>
-          <div class="project-info">
-            <span class="project-title" id="game-title-140401030463294">Simulador de Pneu</span>
-            <div class="project-stats">
-              <div class="project-stat">
-                <span class="stat-mini-label" data-i18n="mini_visits">Visitas</span>
-                <span class="stat-mini-value" id="game-visits-140401030463294">—</span>
-              </div>
-              <div class="project-stat">
-                <span class="stat-mini-label" data-i18n="mini_playing">Jogando agora</span>
-                <span class="stat-mini-value" id="game-playing-140401030463294">—</span>
-              </div>
-            </div>
-            <div class="project-cta">
-              <span data-i18n="play_roblox">Jogar na Roblox</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-              </svg>
-            </div>
+          <figcaption class="ui-caption">
+            <span class="ui-name" data-i18n="ui_passes">Loja de Passes &amp; VIP</span>
+            <span class="ui-note" data-i18n="ui_passes_note">Menu de monetização com GamePasses, pacote múltiplo e assinatura mensal.</span>
+          </figcaption>
+        </figure>
+
+        <figure class="ui-card">
+          <div class="ui-media ui-media-contain">
+            <img src="media/ui-slot-dourado.webp" alt="Slot de item dourado" loading="lazy" width="728" height="975">
           </div>
-        </a>
+          <figcaption class="ui-caption">
+            <span class="ui-name" data-i18n="ui_slot">Slot de Item — Dourado</span>
+            <span class="ui-note" data-i18n="ui_slot_note">Moldura de inventário para itens de raridade alta.</span>
+          </figcaption>
+        </figure>
+
+        <figure class="ui-card">
+          <div class="ui-media ui-media-contain">
+            <img src="media/ui-emblemas-militares.webp" alt="Emblemas de divisões militares" loading="lazy" width="896" height="1200">
+          </div>
+          <figcaption class="ui-caption">
+            <span class="ui-name" data-i18n="ui_emblems">Emblemas Militares</span>
+            <span class="ui-note" data-i18n="ui_emblems_note">Conjunto de insígnias de divisão para sistema de patentes.</span>
+          </figcaption>
+        </figure>
+
+        <figure class="ui-card">
+          <div class="ui-media">
+            <img src="media/ui-game-icon.webp" alt="Ícone de jogo" loading="lazy" width="1024" height="1024">
+          </div>
+          <figcaption class="ui-caption">
+            <span class="ui-name" data-i18n="ui_icon">Ícone de Jogo</span>
+            <span class="ui-note" data-i18n="ui_icon_note">Arte de capa para listagem na plataforma.</span>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
@@ -157,7 +225,7 @@
       <div class="contact-glow"></div>
 
       <div class="contact-intro">
-        <span class="section-number" data-i18n="sec_02">02 / contato</span>
+        <span class="section-number" data-i18n="sec_03">03 / contato</span>
         <h2 class="contact-title">
           <span data-i18n="contact_title">Vamos criar</span><br>
           <span class="glow" data-i18n="contact_title_2">algo.</span>
@@ -187,7 +255,7 @@
           <div class="contact-info">
             <span class="contact-label" data-i18n="lbl_email">E-mail</span>
             <span class="contact-value">krysthianbar7@gmail.com</span>
-            <span class="contact-hint-text" data-i18n="hint_email">Preferido para propostas de projeto</span>
+            <span class="contact-hint-text" data-i18n="hint_email">Para propostas detalhadas, orçamentos e arquivos</span>
           </div>
           <div class="contact-line"></div>
           <a href="mailto:krysthianbar7@gmail.com" class="contact-btn">
@@ -207,7 +275,7 @@
           <div class="contact-info">
             <span class="contact-label" data-i18n="lbl_discord">Discord</span>
             <span class="contact-value">krymus</span>
-            <span class="contact-hint-text" data-i18n="hint_discord">Dúvidas rápidas e disponibilidade</span>
+            <span class="contact-hint-text" data-i18n="hint_discord">Preferido para propostas de projeto</span>
           </div>
           <div class="contact-line"></div>
           <a href="https://discord.com/users/krymus" target="_blank" rel="noopener" class="contact-btn">
@@ -226,11 +294,11 @@
           </div>
           <div class="contact-info">
             <span class="contact-label" data-i18n="lbl_roblox">Roblox</span>
-            <span class="contact-value">noobbatata5</span>
-            <span class="contact-hint-text" data-i18n="hint_roblox">Jogos publicados e estatísticas</span>
+            <span class="contact-value">noobbatata4</span>
+            <span class="contact-hint-text" data-i18n="hint_roblox">Meu perfil na plataforma</span>
           </div>
           <div class="contact-line"></div>
-          <a href="https://www.roblox.com/users/1427122370/profile" target="_blank" rel="noopener" class="contact-btn">
+          <a href="https://www.roblox.com/users/1022065737/profile" target="_blank" rel="noopener" class="contact-btn">
             <span data-i18n="btn_view_profile">Ver perfil</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
@@ -245,6 +313,17 @@
     <span>© 2026 Krysthian</span>
     <span>krysthianbar7@gmail.com</span>
   </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox-close" id="lightbox-close" aria-label="Fechar" data-i18n-aria="aria_close">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+      </svg>
+    </button>
+    <video class="lightbox-video" id="lightbox-video" controls loop playsinline hidden></video>
+    <img class="lightbox-img" id="lightbox-img" alt="" hidden>
+  </div>
 
   <script src="script.js"></script>
 </body>
