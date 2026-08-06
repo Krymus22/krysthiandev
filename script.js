@@ -27,6 +27,7 @@ const TRANSLATIONS = {
     tag_bosses: 'Chefes',
     tag_team: 'Equipe de lutadores',
     tag_grind: 'Farm e evolução',
+    game_amazonia_gloss: '', // o nome já está em português; nada a explicar
     game_amazonia_genre: 'Roube um brainrot · PvP e renda passiva',
     game_amazonia_desc: 'Releitura do gênero com fauna amazônica no lugar dos memes. As criaturas da base geram renda por segundo, e os jogadores invadem bases rivais para roubar as mais valiosas enquanto defendem a própria com travas e armadilhas.',
     tag_income: 'Renda passiva',
@@ -104,6 +105,7 @@ const TRANSLATIONS = {
     tag_bosses: 'Bosses',
     tag_team: 'Fighter squad',
     tag_grind: 'Farming and upgrades',
+    game_amazonia_gloss: '(Steal the Amazon)', // o título fica no original: é o nome do jogo
     game_amazonia_genre: 'Steal a brainrot · PvP and passive income',
     game_amazonia_desc: 'A take on the genre with Amazon rainforest wildlife in place of the memes. Creatures in your base generate income per second, and players raid rival bases to steal the most valuable ones while defending their own with locks and traps.',
     tag_income: 'Passive income',
@@ -187,9 +189,11 @@ function applyLanguage(lang, persist = true) {
 
   const dict = TRANSLATIONS[lang];
 
+  // Compara com undefined em vez de testar o valor: string vazia é uma tradução
+  // válida (ex.: glosa que só existe em inglês) e precisa limpar o texto.
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (dict[key]) el.textContent = dict[key];
+    if (dict[key] !== undefined) el.textContent = dict[key];
   });
 
   document.querySelectorAll('[data-i18n-aria]').forEach(el => {

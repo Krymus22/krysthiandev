@@ -584,6 +584,20 @@ button {
   letter-spacing: -0.01em;
 }
 
+/* Tradução do nome ao lado do original, só nos idiomas que precisam */
+.game-title-gloss {
+  margin-left: 3px; /* o resto do respiro vem do espaço no HTML, que o leitor de tela precisa */
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--color-dim);
+}
+
+.game-title-gloss:empty {
+  display: none;
+}
+
 .game-status {
   display: inline-flex;
   align-items: center;
