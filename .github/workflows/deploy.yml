@@ -1,0 +1,38 @@
+name: Deploy no GitHub Pages
+
+# O builder legado do Pages passou a criar builds que nunca iniciavam
+# (duration 0, sem log). Publicar pelo Actions contorna aquela fila e,
+# quando algo falhar, mostra o erro em vez de "Page build failed".
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Deixa terminar o deploy em andamento antes de começar outro.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/configure-pages@v5
+
+      # Site estático: sobe a raiz do repositório como está, sem build.
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
