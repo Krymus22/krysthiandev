@@ -509,6 +509,7 @@ button {
 }
 
 .game-cover img {
+  position: relative;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -517,6 +518,24 @@ button {
 
 .game-card:hover .game-cover img {
   transform: scale(1.04);
+}
+
+/* Capa com proporção diferente de 16:9 (ícone quadrado da Roblox, por exemplo):
+   mostra a arte inteira e preenche as sobras com ela mesma, desfocada. */
+.game-cover.has-art img {
+  object-fit: contain;
+}
+
+.game-cover.has-art::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--cover);
+  background-size: cover;
+  background-position: center;
+  filter: blur(22px) saturate(1.3);
+  transform: scale(1.2);
+  opacity: 0.45;
 }
 
 /* Placeholder enquanto a capa não existe: listrado, para não parecer imagem quebrada */
