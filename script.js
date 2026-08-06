@@ -7,7 +7,7 @@ const TRANSLATIONS = {
     nav_contact: 'Contato',
     badge_open: 'Aberto a novos projetos',
     hero_role: 'Desenvolvedor Roblox.',
-    hero_desc: 'Mais de 2 anos criando experiências completas no Roblox Studio: scripts, sistemas, UI e tudo que seu jogo precisar. Soluções personalizadas para cada projeto.',
+    hero_desc: 'Há mais de 2 anos criando experiências completas no Roblox Studio: scripts, sistemas, UI e tudo que seu jogo precisar. Soluções personalizadas para cada projeto.',
     btn_hire: 'Me contratar',
     btn_works: 'Ver trabalhos',
     card_available: 'Disponível para trabalho',
