@@ -605,6 +605,62 @@ button {
   50% { box-shadow: 0 0 0 5px rgba(252, 211, 77, 0); }
 }
 
+/* Jogo publicado e jogavel: verde, ao contrario do ambar de "em obras" */
+.game-status.is-live {
+  background: rgba(74, 222, 128, 0.1);
+  border-color: rgba(74, 222, 128, 0.3);
+  color: #86efac;
+}
+
+.game-status.is-live .status-dot {
+  background: #4ade80;
+  animation: pulse-live 2s ease-in-out infinite;
+}
+
+@keyframes pulse-live {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5); }
+  50% { box-shadow: 0 0 0 5px rgba(74, 222, 128, 0); }
+}
+
+/* Botao de jogar: so aparece no card que tem link */
+.game-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 4px;
+  padding: 10px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.12), rgba(6, 182, 212, 0.1));
+  border: 1px solid rgba(168, 85, 247, 0.28);
+  color: var(--color-accent);
+  font-size: 12px;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.game-cta:hover {
+  color: var(--color-accent-2);
+  border-color: rgba(6, 182, 212, 0.45);
+}
+
+.game-cta::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+.game-card:hover .game-cta::after {
+  left: 100%;
+}
+
 .game-genre {
   font-family: var(--font-mono);
   font-size: 11px;
