@@ -921,6 +921,11 @@ button {
   width: 100%;
 }
 
+/* Peca em destaque: ocupa a linha inteira, deixando as outras 4 em 2x2 limpo */
+.ui-card-hero {
+  grid-column: 1 / -1;
+}
+
 @media (max-width: 560px) {
   .ui-grid {
     grid-template-columns: 1fr;
