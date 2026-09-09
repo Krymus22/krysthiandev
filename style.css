@@ -16,6 +16,11 @@
   --max-width: 1200px;
 }
 
+/* .section define display:flex, que sobrepoe o hidden padrao do navegador */
+[hidden] {
+  display: none !important;
+}
+
 /* ============ RESET ============ */
 * {
   margin: 0;

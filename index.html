@@ -29,7 +29,7 @@
       <span class="logo-text">Krysthian</span>
     </a>
     <nav class="nav">
-      <a href="#games" class="nav-link" data-i18n="nav_games">Jogos</a>
+      <a href="#games" class="nav-link" data-i18n="nav_games" hidden>Jogos</a>
       <a href="#systems" class="nav-link" data-i18n="nav_systems">Sistemas</a>
       <a href="#ui" class="nav-link" data-i18n="nav_ui">UI</a>
       <a href="#contact" class="nav-link" data-i18n="nav_contact">Contato</a>
@@ -90,7 +90,7 @@
               <span class="stat-label" data-i18n="card_exp">Anos de experiência</span>
               <span class="stat-value">2+</span>
             </div>
-            <div class="stat-row">
+            <div class="stat-row" hidden>
               <span class="stat-label" data-i18n="card_games_wip">Jogos em desenvolvimento</span>
               <span class="stat-value">2</span>
             </div>
@@ -121,8 +121,11 @@
       </div>
     </section>
 
-    <!-- GAMES -->
-    <section id="games" class="section">
+    <!-- GAMES: desativada temporariamente.
+         Para religar: remover o atributo hidden desta secao, do link no nav
+         e da linha "Jogos em desenvolvimento" no card do hero, e devolver a
+         numeracao das secoes seguintes para 02/03/04 (aqui e no script.js). -->
+    <section id="games" class="section" hidden>
       <div class="section-header">
         <div>
           <span class="section-number" data-i18n="sec_01">01 / jogos</span>
@@ -197,7 +200,7 @@
     <section id="systems" class="section">
       <div class="section-header">
         <div>
-          <span class="section-number" data-i18n="sec_02">02 / trabalhos</span>
+          <span class="section-number" data-i18n="sec_02">01 / trabalhos</span>
           <h2 class="section-title" data-i18n="sec_systems">Sistemas</h2>
           <p class="section-subtitle" data-i18n="sec_systems_sub">Sistemas que desenvolvi no Roblox Studio, gravados em teste real.</p>
         </div>
@@ -341,7 +344,7 @@
     <section id="ui" class="section">
       <div class="section-header">
         <div>
-          <span class="section-number" data-i18n="sec_03">03 / interface</span>
+          <span class="section-number" data-i18n="sec_03">02 / interface</span>
           <h2 class="section-title" data-i18n="sec_ui">UI &amp; Arte</h2>
           <p class="section-subtitle" data-i18n="sec_ui_sub">Interfaces e assets visuais que criei para jogos na Roblox.</p>
         </div>
@@ -406,7 +409,7 @@
       <div class="contact-glow"></div>
 
       <div class="contact-intro">
-        <span class="section-number" data-i18n="sec_04">04 / contato</span>
+        <span class="section-number" data-i18n="sec_04">03 / contato</span>
         <h2 class="contact-title">
           <span data-i18n="contact_title">Vamos criar</span><br>
           <span class="glow" data-i18n="contact_title_2">algo.</span>
