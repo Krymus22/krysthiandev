@@ -918,17 +918,16 @@ button {
 }
 
 /* ============ UI GALLERY ============ */
-/* 3 assets: 3 colunas fecham a grade sem deixar célula vazia.
-   Vai direto para 1 coluna, porque em 2 sobraria uma celula. */
+/* 4 assets em 2x2: fecha a grade sem deixar célula vazia */
 .ui-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   max-width: var(--max-width);
   width: 100%;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 560px) {
   .ui-grid {
     grid-template-columns: 1fr;
   }
