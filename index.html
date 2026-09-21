@@ -29,7 +29,7 @@
       <span class="logo-text">Krysthian</span>
     </a>
     <nav class="nav">
-      <a href="#games" class="nav-link" data-i18n="nav_games" hidden>Jogos</a>
+      <a href="#games" class="nav-link" data-i18n="nav_games">Jogos</a>
       <a href="#systems" class="nav-link" data-i18n="nav_systems">Sistemas</a>
       <a href="#ui" class="nav-link" data-i18n="nav_ui">UI</a>
       <a href="#contact" class="nav-link" data-i18n="nav_contact">Contato</a>
@@ -90,9 +90,9 @@
               <span class="stat-label" data-i18n="card_exp">Anos de experiência</span>
               <span class="stat-value">2+</span>
             </div>
-            <div class="stat-row" hidden>
-              <span class="stat-label" data-i18n="card_games_wip">Jogos em desenvolvimento</span>
-              <span class="stat-value">2</span>
+            <div class="stat-row">
+              <span class="stat-label" data-i18n="card_games_pub">Jogos publicados</span>
+              <span class="stat-value">1</span>
             </div>
             <div class="stat-row">
               <span class="stat-label" data-i18n="card_systems">Sistemas no portfólio</span>
@@ -121,16 +121,13 @@
       </div>
     </section>
 
-    <!-- GAMES: desativada temporariamente.
-         Para religar: remover o atributo hidden desta secao, do link no nav
-         e da linha "Jogos em desenvolvimento" no card do hero, e devolver a
-         numeracao das secoes seguintes para 02/03/04 (aqui e no script.js). -->
-    <section id="games" class="section" hidden>
+    <!-- GAMES -->
+    <section id="games" class="section">
       <div class="section-header">
         <div>
           <span class="section-number" data-i18n="sec_01">01 / jogos</span>
           <h2 class="section-title" data-i18n="sec_games">Jogos</h2>
-          <p class="section-subtitle" data-i18n="sec_games_sub">Jogos que estou construindo. Um deles já em beta aberto.</p>
+          <p class="section-subtitle" data-i18n="sec_games_sub">Jogo que publiquei na Roblox.</p>
         </div>
       </div>
 
@@ -144,9 +141,9 @@
           <div class="game-body">
             <div class="game-head">
               <h3 class="game-title">Brainrot Fighters</h3>
-              <span class="game-status">
+              <span class="game-status is-live">
                 <span class="status-dot"></span>
-                <span data-i18n="status_wip">Em desenvolvimento</span>
+                <span data-i18n="status_live">Publicado</span>
               </span>
             </div>
             <span class="game-genre" data-i18n="game_fighters_genre">Anime fighters · Gacha e progressão</span>
@@ -158,10 +155,17 @@
               <li class="game-tag" data-i18n="tag_team">Equipe de lutadores</li>
               <li class="game-tag" data-i18n="tag_grind">Farm e evolução</li>
             </ul>
+            <a class="game-cta" href="https://www.roblox.com/games/110201073612870/Brainrot-Fighters" target="_blank" rel="noopener">
+              <span data-i18n="play_roblox">Jogar na Roblox</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              </svg>
+            </a>
           </div>
         </article>
 
-        <article class="game-card">
+        <!-- Roube Amazonia oculto a pedido; remover o hidden para voltar -->
+        <article class="game-card" hidden>
           <!-- Mesma situação da outra capa: arte quadrada em slot 16:9. -->
           <div class="game-cover has-art" style="--cover: url('media/capa-roube-amazonia.webp')">
             <img src="media/capa-roube-amazonia.webp" alt="Roube Amazônia" loading="lazy" width="768" height="768">
@@ -200,7 +204,7 @@
     <section id="systems" class="section">
       <div class="section-header">
         <div>
-          <span class="section-number" data-i18n="sec_02">01 / trabalhos</span>
+          <span class="section-number" data-i18n="sec_02">02 / trabalhos</span>
           <h2 class="section-title" data-i18n="sec_systems">Sistemas</h2>
           <p class="section-subtitle" data-i18n="sec_systems_sub">Sistemas que desenvolvi no Roblox Studio, gravados em teste real.</p>
         </div>
@@ -388,7 +392,7 @@
     <section id="ui" class="section">
       <div class="section-header">
         <div>
-          <span class="section-number" data-i18n="sec_03">02 / interface</span>
+          <span class="section-number" data-i18n="sec_03">03 / interface</span>
           <h2 class="section-title" data-i18n="sec_ui">UI &amp; Arte</h2>
           <p class="section-subtitle" data-i18n="sec_ui_sub">Interfaces e assets visuais que criei para jogos na Roblox.</p>
         </div>
@@ -443,7 +447,7 @@
       <div class="contact-glow"></div>
 
       <div class="contact-intro">
-        <span class="section-number" data-i18n="sec_04">03 / contato</span>
+        <span class="section-number" data-i18n="sec_04">04 / contato</span>
         <h2 class="contact-title">
           <span data-i18n="contact_title">Vamos criar</span><br>
           <span class="glow" data-i18n="contact_title_2">algo.</span>
