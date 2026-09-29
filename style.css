@@ -1056,7 +1056,8 @@ button {
     var(--color-surface);
 }
 
-.reel-video {
+.reel-video,
+.reel-still {
   width: 100%;
   height: 100%;
   object-fit: contain;

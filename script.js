@@ -8,7 +8,7 @@ const TRANSLATIONS = {
     nav_anim: 'Animação',
     sec_models_n: '03 / modelagem',
     sec_models: 'Modelagem 3D',
-    sec_models_sub: 'Modelos que fiz no Blender para jogos na Roblox. Clique para ver maior.',
+    sec_models_sub: 'Modelos que fiz no Blender para jogos na Roblox. Clique para ver girando.',
     mod_baus: 'Baús de Tesouro',
     mod_espadas: 'Espadas por Raridade',
     mod_bolas: 'Bolas de Captura',
@@ -103,6 +103,7 @@ const TRANSLATIONS = {
     ui_slot: 'Slot de Item Dourado',
     ui_slot_note: 'Moldura de inventário para itens de raridade alta.',
     aria_expand: 'Expandir vídeo',
+    aria_spin: 'Ver girando',
     aria_close: 'Fechar',
     aria_play: 'Reproduzir',
     aria_pause: 'Pausar',
@@ -130,7 +131,7 @@ const TRANSLATIONS = {
     nav_anim: 'Animation',
     sec_models_n: '03 / modelling',
     sec_models: '3D Modelling',
-    sec_models_sub: 'Models I built in Blender for Roblox games. Click to see them bigger.',
+    sec_models_sub: 'Models I built in Blender for Roblox games. Click to see them turning.',
     mod_baus: 'Treasure Chests',
     mod_espadas: 'Swords by Rarity',
     mod_bolas: 'Capture Balls',
@@ -225,6 +226,7 @@ const TRANSLATIONS = {
     ui_slot: 'Gold Item Slot',
     ui_slot_note: 'Inventory frame for high-rarity items.',
     aria_expand: 'Expand video',
+    aria_spin: 'See it turning',
     aria_close: 'Close',
     aria_play: 'Play',
     aria_pause: 'Pause',
@@ -585,11 +587,13 @@ function setupLightbox() {
 
   document.querySelectorAll('.reel-card').forEach(card => {
     card.addEventListener('click', () => {
-      const video = card.querySelector('.reel-video');
-      if (!video) return;
+      const media = card.querySelector('.reel-video, .reel-still');
+      if (!media) return;
+      // o card de modelo e so uma imagem parada, o de animacao roda uma copia leve
+      const cheio = media.dataset.hd || (media.tagName === 'VIDEO' ? media.currentSrc || media.src : '');
+      if (!cheio) return;
       open(() => {
-        // o card roda uma copia leve; ampliar troca pela resolucao cheia
-        lbVideo.src = video.dataset.hd || video.currentSrc || video.src;
+        lbVideo.src = cheio;
         lbVideo.hidden = false;
         lbVideo.play().catch(() => {});
       });
