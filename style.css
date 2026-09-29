@@ -1002,6 +1002,74 @@ button {
   color: var(--color-dim);
 }
 
+/* ============ REEL (modelagem e animacao) ============ */
+/* 16 modelos fecham em 4 colunas; as 3 animacoes usam a variante de 3 */
+.reel-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  max-width: var(--max-width);
+  width: 100%;
+}
+
+.reel-grid-wide {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1000px) {
+  .reel-grid,
+  .reel-grid-wide {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .reel-grid,
+  .reel-grid-wide {
+    grid-template-columns: 1fr;
+  }
+}
+
+.reel-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: zoom-in;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s;
+}
+
+.reel-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(6, 182, 212, 0.3);
+}
+
+/* As fileiras vao de 16:9 a 3:1. A caixa 2:1 e o meio termo, e contain
+   garante que nenhuma ponta da fileira seja cortada. */
+.reel-media {
+  aspect-ratio: 2 / 1;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(168, 85, 247, 0.07), transparent 70%),
+    var(--color-surface);
+}
+
+.reel-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.reel-name {
+  padding: 11px 12px;
+  border-top: 1px solid var(--color-border);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
 /* ============ LIGHTBOX ============ */
 .lightbox {
   position: fixed;

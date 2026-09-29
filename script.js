@@ -4,6 +4,33 @@ const TRANSLATIONS = {
     nav_games: 'Jogos',
     nav_systems: 'Sistemas',
     nav_ui: 'UI',
+    nav_models: '3D',
+    nav_anim: 'Animação',
+    sec_models_n: '03 / modelagem',
+    sec_models: 'Modelagem 3D',
+    sec_models_sub: 'Modelos que fiz no Blender para jogos na Roblox. Clique para ver maior.',
+    mod_baus: 'Baús de Tesouro',
+    mod_espadas: 'Espadas por Raridade',
+    mod_bolas: 'Bolas de Captura',
+    mod_pets: 'Pets por Raridade',
+    mod_slimes: 'Evolução de Slimes',
+    mod_ak47: 'AK-47',
+    mod_pistola: 'Pistola',
+    mod_escopeta: 'Escopeta',
+    mod_sniper: 'Sniper',
+    mod_cerimonia: 'Itens de Cerimônia',
+    mod_medico: 'Itens de Socorro',
+    mod_ugc: 'Acessórios UGC',
+    mod_brasil: 'Kit Brasil',
+    mod_tycoon: 'Peças de Tycoon',
+    mod_roda: 'Roda Apex',
+    mod_cidade: 'Cidade Zumbi',
+    sec_anim_n: '05 / animação',
+    sec_anim: 'Animação',
+    sec_anim_sub: 'Peças em movimento, não só girando para mostrar o modelo.',
+    ani_bau: 'Baú Lendário Abrindo',
+    ani_slimes: 'Slimes Pulando',
+    ani_tycoon: 'Linha de Produção',
     nav_contact: 'Contato',
     badge_open: 'Aberto a novos projetos',
     hero_role: 'Desenvolvedor Roblox.',
@@ -64,7 +91,7 @@ const TRANSLATIONS = {
     tag_speedlimit: 'Limite de velocidade',
     tag_fines: 'Pontos e multas',
     tag_dealership: 'Concessionária e garagem',
-    sec_03: '03 / interface',
+    sec_03: '04 / interface',
     sec_ui: 'UI & Arte',
     sec_ui_sub: 'Interfaces e assets visuais que criei para jogos na Roblox.',
     ui_titles: 'Títulos',
@@ -80,7 +107,7 @@ const TRANSLATIONS = {
     aria_play: 'Reproduzir',
     aria_pause: 'Pausar',
     aria_seek: 'Posição do vídeo',
-    sec_04: '04 / contato',
+    sec_04: '06 / contato',
     contact_title: 'Vamos criar',
     contact_title_2: 'algo.',
     contact_desc: 'Disponível para freelance na Roblox. Baseado em Toledo, Paraná.',
@@ -99,6 +126,33 @@ const TRANSLATIONS = {
     nav_games: 'Games',
     nav_systems: 'Systems',
     nav_ui: 'UI',
+    nav_models: '3D',
+    nav_anim: 'Animation',
+    sec_models_n: '03 / modelling',
+    sec_models: '3D Modelling',
+    sec_models_sub: 'Models I built in Blender for Roblox games. Click to see them bigger.',
+    mod_baus: 'Treasure Chests',
+    mod_espadas: 'Swords by Rarity',
+    mod_bolas: 'Capture Balls',
+    mod_pets: 'Pets by Rarity',
+    mod_slimes: 'Slime Evolution',
+    mod_ak47: 'AK-47',
+    mod_pistola: 'Pistol',
+    mod_escopeta: 'Shotgun',
+    mod_sniper: 'Sniper',
+    mod_cerimonia: 'Ceremony Items',
+    mod_medico: 'Medic Items',
+    mod_ugc: 'UGC Accessories',
+    mod_brasil: 'Brazil Kit',
+    mod_tycoon: 'Tycoon Parts',
+    mod_roda: 'Apex Wheel',
+    mod_cidade: 'Zombie Town',
+    sec_anim_n: '05 / animation',
+    sec_anim: 'Animation',
+    sec_anim_sub: 'Pieces in motion, not just spinning to show the model.',
+    ani_bau: 'Legendary Chest Opening',
+    ani_slimes: 'Slimes Hopping',
+    ani_tycoon: 'Production Line',
     nav_contact: 'Contact',
     badge_open: 'Open to new projects',
     hero_role: 'Roblox Developer.',
@@ -159,7 +213,7 @@ const TRANSLATIONS = {
     tag_speedlimit: 'Speed limits',
     tag_fines: 'Points and fines',
     tag_dealership: 'Dealership and garage',
-    sec_03: '03 / interface',
+    sec_03: '04 / interface',
     sec_ui: 'UI & Art',
     sec_ui_sub: 'Interfaces and visual assets I created for Roblox games.',
     ui_titles: 'Titles',
@@ -175,7 +229,7 @@ const TRANSLATIONS = {
     aria_play: 'Play',
     aria_pause: 'Pause',
     aria_seek: 'Video position',
-    sec_04: '04 / contact',
+    sec_04: '06 / contact',
     contact_title: 'Let\'s build',
     contact_title_2: 'something.',
     contact_desc: 'Available for Roblox freelance work. Based in Toledo, Paraná, Brazil.',
@@ -436,6 +490,48 @@ function setupSystemVideos() {
   });
 }
 
+
+// ============ MODELAGEM E ANIMACAO ============
+// Cards sem barra de controle: tocam ao entrar na tela e abrem no lightbox.
+function setupReels() {
+  const videos = [...document.querySelectorAll('.reel-video')];
+  if (!videos.length) return;
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const visible = new Set();
+
+  function play(video) {
+    video.pending = Promise.resolve(video.pending).then(() => video.play()).catch(() => {});
+  }
+
+  function pause(video) {
+    video.pending = Promise.resolve(video.pending).then(() => video.pause()).catch(() => {});
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const video = entry.target;
+      if (entry.isIntersecting) {
+        visible.add(video);
+        play(video);
+      } else {
+        visible.delete(video);
+        pause(video);
+      }
+    });
+  }, { threshold: 0.25 });
+
+  videos.forEach(video => observer.observe(video));
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) return;
+    visible.forEach(video => {
+      if (video.paused) play(video);
+    });
+  });
+}
+
 // ============ LIGHTBOX ============
 function setupLightbox() {
   const lightbox = document.getElementById('lightbox');
@@ -465,6 +561,18 @@ function setupLightbox() {
   document.querySelectorAll('.system-expand').forEach(btn => {
     btn.addEventListener('click', () => {
       const video = btn.closest('.system-media').querySelector('.system-video');
+      open(() => {
+        lbVideo.src = video.currentSrc || video.src;
+        lbVideo.hidden = false;
+        lbVideo.play().catch(() => {});
+      });
+    });
+  });
+
+  document.querySelectorAll('.reel-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const video = card.querySelector('.reel-video');
+      if (!video) return;
       open(() => {
         lbVideo.src = video.currentSrc || video.src;
         lbVideo.hidden = false;
@@ -507,5 +615,6 @@ document.addEventListener('DOMContentLoaded', () => {
   applyLanguage(currentLang, localStorage.getItem('lang') !== null);
 
   setupSystemVideos();
+  setupReels();
   setupLightbox();
 });
