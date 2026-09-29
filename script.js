@@ -588,7 +588,8 @@ function setupLightbox() {
       const video = card.querySelector('.reel-video');
       if (!video) return;
       open(() => {
-        lbVideo.src = video.currentSrc || video.src;
+        // o card roda uma copia leve; ampliar troca pela resolucao cheia
+        lbVideo.src = video.dataset.hd || video.currentSrc || video.src;
         lbVideo.hidden = false;
         lbVideo.play().catch(() => {});
       });
