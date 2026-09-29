@@ -624,6 +624,38 @@ function setupLightbox() {
   });
 }
 
+// ============ NAV ATIVA ============
+function setupNavSpy() {
+  const items = [...document.querySelectorAll('.nav-link[href^="#"]')]
+    .map(link => ({ link, section: document.querySelector(link.getAttribute('href')) }))
+    .filter(item => item.section);
+  if (!items.length) return;
+
+  // A secao conta como atual quando o topo dela passa da linha logo abaixo do header.
+  const LINE = 120;
+
+  function update() {
+    let current = null;
+    items.forEach(item => {
+      if (item.section.getBoundingClientRect().top <= LINE) current = item;
+    });
+    // Contato e curto demais para chegar na linha, entao no fim da pagina ele vale.
+    const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+    if (atBottom) current = items[items.length - 1];
+
+    items.forEach(item => {
+      const isCurrent = item === current;
+      item.link.classList.toggle('active', isCurrent);
+      if (isCurrent) item.link.setAttribute('aria-current', 'true');
+      else item.link.removeAttribute('aria-current');
+    });
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+}
+
 // ============ INIT ============
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -636,4 +668,5 @@ document.addEventListener('DOMContentLoaded', () => {
   setupSystemVideos();
   setupReels();
   setupLightbox();
+  setupNavSpy();
 });

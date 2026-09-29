@@ -161,6 +161,11 @@ button {
   background: var(--color-surface);
 }
 
+.nav-link.active {
+  color: var(--color-white);
+  background: rgba(168, 85, 247, 0.15);
+}
+
 .icon-link {
   margin-left: 8px;
   padding: 8px;
