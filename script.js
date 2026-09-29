@@ -501,6 +501,11 @@ function setupReels() {
 
   const visible = new Set();
 
+  // Uma fileira inteira entra na tela de uma vez. Comecar todas no mesmo quadro
+  // trava a rolagem, entao as partidas saem em fila, uma a cada 70ms.
+  const START_GAP = 70;
+  let fila = 0;
+
   function play(video) {
     video.pending = Promise.resolve(video.pending).then(() => video.play()).catch(() => {});
   }
@@ -509,12 +514,21 @@ function setupReels() {
     video.pending = Promise.resolve(video.pending).then(() => video.pause()).catch(() => {});
   }
 
+  function playEscalonado(video) {
+    const espera = fila * START_GAP;
+    fila += 1;
+    setTimeout(() => {
+      fila = Math.max(0, fila - 1);
+      if (visible.has(video)) play(video);
+    }, espera);
+  }
+
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       const video = entry.target;
       if (entry.isIntersecting) {
         visible.add(video);
-        play(video);
+        playEscalonado(video);
       } else {
         visible.delete(video);
         pause(video);
@@ -527,7 +541,7 @@ function setupReels() {
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) return;
     visible.forEach(video => {
-      if (video.paused) play(video);
+      if (video.paused) playEscalonado(video);
     });
   });
 }
