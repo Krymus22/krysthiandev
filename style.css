@@ -1008,7 +1008,7 @@ button {
 }
 
 /* ============ REEL (modelagem e animacao) ============ */
-/* 16 modelos fecham em 4 colunas; as 3 animacoes usam a variante de 3 */
+/* 18 modelos: 4 fileiras de 4 e uma de 2; as animacoes usam a variante de 3 */
 .reel-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1034,6 +1034,21 @@ button {
 
   .reel-grid-wide .reel-card:nth-child(4) {
     grid-column: 2 / span 2;
+  }
+}
+
+/* A fileira de dois dos modelos tambem fica centralizada, em colunas de meio card. */
+@media (min-width: 1001px) {
+  #models .reel-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  #models .reel-card {
+    grid-column: span 2;
+  }
+
+  #models .reel-card:nth-child(17) {
+    grid-column: 3 / span 2;
   }
 }
 
