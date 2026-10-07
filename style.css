@@ -1008,7 +1008,7 @@ button {
 }
 
 /* ============ REEL (modelagem e animacao) ============ */
-/* 18 modelos: 4 fileiras de 4 e uma de 2; as animacoes usam a variante de 3 */
+/* Os cards que sobram na ultima fileira ficam a esquerda; as animacoes usam a variante de 3 colunas */
 .reel-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1019,37 +1019,6 @@ button {
 
 .reel-grid-wide {
   grid-template-columns: repeat(3, 1fr);
-}
-
-/* Cinco cards em tres colunas deixariam um buraco na segunda fileira: em seis
-   colunas de meio card, os dois ultimos ficam centralizados. */
-@media (min-width: 1001px) {
-  .reel-grid-wide {
-    grid-template-columns: repeat(6, 1fr);
-  }
-
-  .reel-grid-wide .reel-card {
-    grid-column: span 2;
-  }
-
-  .reel-grid-wide .reel-card:nth-child(4) {
-    grid-column: 2 / span 2;
-  }
-}
-
-/* A fileira de dois dos modelos tambem fica centralizada, em colunas de meio card. */
-@media (min-width: 1001px) {
-  #models .reel-grid {
-    grid-template-columns: repeat(8, 1fr);
-  }
-
-  #models .reel-card {
-    grid-column: span 2;
-  }
-
-  #models .reel-card:nth-child(17) {
-    grid-column: 3 / span 2;
-  }
 }
 
 @media (max-width: 1000px) {
