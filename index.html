@@ -1,835 +1,894 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Krysthian | Desenvolvedor Roblox</title>
-  <meta name="description" content="Desenvolvedor Roblox com mais de 2 anos de experiência criando jogos, sistemas, UI, modelos 3D e animações.">
-  <meta property="og:title" content="Krysthian | Roblox Developer">
-  <meta property="og:description" content="Roblox developer with 2+ years of experience building games, systems, UI, 3D models and animations.">
+  <title>Krysthian | Modelador 3D e animador Roblox</title>
+  <meta name="description" content="Modelagem 3D e animação para jogos na Roblox. Personagens, armas, itens e cenários feitos no Blender.">
+  <meta property="og:title" content="Krysthian | Roblox 3D Artist and Animator">
+  <meta property="og:description" content="3D modeling and animation for Roblox games. Characters, weapons, items and environments built in Blender.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://krymus22.github.io/krysthiandev/">
-  <meta property="og:site_name" content="Krysthian | Roblox Developer">
+  <meta property="og:site_name" content="Krysthian | Roblox 3D Artist">
   <meta property="og:locale" content="en_US">
   <!-- Sem og:image e twitter:image de propósito: o preview do link é só texto. -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Krysthian | Roblox Developer">
-  <meta name="twitter:description" content="Roblox developer with 2+ years of experience building games, systems, UI, 3D models and animations.">
-  <meta name="theme-color" content="#a855f7">
+  <meta name="twitter:title" content="Krysthian | Roblox 3D Artist and Animator">
+  <meta name="twitter:description" content="3D modeling and animation for Roblox games. Characters, weapons, items and environments built in Blender.">
+  <meta name="theme-color" content="#0a0f18">
+  <link rel="preload" as="image" href="media/hero.webp" type="image/webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=2026-10-14">
 </head>
 <body>
-  <!-- HEADER -->
-  <header class="header">
-    <a href="#" class="logo">
-      <span class="pulse-dot"></span>
-      <span class="logo-text">Krysthian</span>
-    </a>
-    <nav class="nav">
-      <a href="#games" class="nav-link" data-i18n="nav_games">Jogos</a>
-      <a href="#systems" class="nav-link" data-i18n="nav_systems">Sistemas</a>
-      <a href="#models" class="nav-link" data-i18n="nav_models">3D</a>
-      <a href="#ui" class="nav-link" data-i18n="nav_ui">UI</a>
-      <a href="#animations" class="nav-link" data-i18n="nav_anim">Animação</a>
-      <a href="#contact" class="nav-link" data-i18n="nav_contact">Contato</a>
-      <div class="lang-switch">
-        <button class="lang-btn" data-lang="en">EN</button>
-        <button class="lang-btn active" data-lang="pt">PT</button>
-      </div>
-      <a href="https://discord.com/users/krymus" target="_blank" rel="noopener" class="icon-link" aria-label="Discord">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
-        </svg>
+  <div class="stage-light" aria-hidden="true"></div>
+  <a class="skip-link" href="#models" data-i18n="skip_link">Pular para o conteúdo</a>
+
+  <header class="header is-top" id="header">
+    <div class="header-inner container">
+      <a href="#top" class="logo" aria-label="Krysthian">
+        <span class="logo-text">Krysthian</span>
       </a>
-    </nav>
+
+      <nav class="nav-links" aria-label="Seções" data-i18n-aria="aria_sections">
+        <a href="#models" class="nav-link" data-i18n="nav_models">3D</a>
+        <a href="#animations" class="nav-link" data-i18n="nav_anim">Animação</a>
+        <a href="#games" class="nav-link" data-i18n="nav_games">Jogos</a>
+        <a href="#systems" class="nav-link" data-i18n="nav_systems">Sistemas</a>
+        <a href="#ui" class="nav-link" data-i18n="nav_ui">UI</a>
+        <a href="#contact" class="nav-link" data-i18n="nav_contact">Contato</a>
+      </nav>
+
+      <div class="header-tools">
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn active" data-lang="pt">PT</button>
+        </div>
+        <a href="https://discord.com/users/krymus" target="_blank" rel="noopener" class="icon-link" aria-label="Discord">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
   </header>
 
   <main>
     <!-- HERO -->
-    <section class="hero">
-      <div class="hero-grid-bg"></div>
-      <div class="hero-glow-1"></div>
-      <div class="hero-glow-2"></div>
+    <section class="hero" id="top">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-inner container">
+        <div class="hero-copy">
+          <p class="status-line anim-rise" data-i18n="badge_open">Aceitando novos projetos</p>
 
-      <div class="hero-content">
-        <div class="hero-left">
-          <div class="badge anim-rise">
-            <span class="pulse-dot"></span>
-            <span data-i18n="badge_open">Aberto a novos projetos</span>
-          </div>
+          <h1 class="hero-title anim-rise delay-1" data-i18n-html="hero_title">Modelagem <span class="brick">3D</span><br>e animação<br>para Roblox.</h1>
 
-          <h1 class="hero-title anim-rise delay-1">
-            <span class="glow">Krysthian.</span><br>
-            <span data-i18n="hero_role">Desenvolvedor Roblox.</span>
-          </h1>
+          <p class="hero-lead anim-rise delay-2" data-i18n="hero_desc">Modelos, personagens e animações para jogos na Roblox. Antes de me dedicar ao 3D, trabalhei como programador e UI maker.</p>
 
-          <p class="hero-description anim-rise delay-2">
-            <span data-i18n="hero_desc">Há mais de 2 anos criando experiências completas no Roblox Studio: scripts, sistemas, UI e tudo que seu jogo precisar. Soluções personalizadas para cada projeto.</span>
-          </p>
-
-          <div class="hero-buttons anim-rise delay-3">
-            <a href="#contact" class="btn-primary">
-              <span data-i18n="btn_hire">Me contratar</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
-              </svg>
+          <div class="hero-actions anim-rise delay-3">
+            <a href="#models" class="btn btn-primary">
+              <span data-i18n="btn_works">Ver trabalhos</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
             </a>
-            <a href="#systems" class="btn-secondary" data-i18n="btn_works">Ver trabalhos</a>
-          </div>
-        </div>
-
-        <div class="hero-card anim-rise delay-4">
-          <div class="card-header">
-            <span class="pulse-dot"></span>
-            <span data-i18n="card_available">Disponível para trabalho</span>
-          </div>
-          <div class="divider"></div>
-          <div class="card-stats">
-            <div class="stat-row">
-              <span class="stat-label" data-i18n="card_exp">Anos de experiência</span>
-              <span class="stat-value">2+</span>
-            </div>
-            <div class="stat-row">
-              <span class="stat-label" data-i18n="card_games_pub">Jogos publicados</span>
-              <span class="stat-value">1</span>
-            </div>
-            <!-- Linha de sistemas desativada: para voltar, tire o atributo hidden. -->
-            <div class="stat-row" hidden>
-              <span class="stat-label" data-i18n="card_systems">Sistemas no portfólio</span>
-              <span class="stat-value">4</span>
-            </div>
-            <div class="stat-row">
-              <span class="stat-label" data-i18n="card_response">Tempo de resposta</span>
-              <span class="stat-value">&lt; 24h</span>
-            </div>
-          </div>
-          <div class="divider"></div>
-          <div class="card-stack">
-            <span class="stack-label">Stack</span>
-            <ul class="stack-list">
-              <li class="stack-chip">Luau</li>
-              <li class="stack-chip">JavaScript</li>
-              <li class="stack-chip">HTML</li>
-              <li class="stack-chip">CSS</li>
-              <li class="stack-chip">Java</li>
-              <li class="stack-chip">C</li>
-              <li class="stack-chip">MySQL</li>
-              <li class="stack-chip">PostgreSQL</li>
-              <li class="stack-chip">Blender</li>
-              <li class="stack-chip">Figma</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- GAMES -->
-    <section id="games" class="section">
-      <div class="section-header">
-        <div>
-          <span class="section-number" data-i18n="sec_01">01 / jogos</span>
-          <h2 class="section-title" data-i18n="sec_games">Jogos</h2>
-          <p class="section-subtitle" data-i18n="sec_games_sub">Jogo que publiquei na Roblox.</p>
-        </div>
-      </div>
-
-      <div class="games-grid">
-        <article class="game-card">
-          <!-- A arte é quadrada e o slot é 16:9. --cover repete a imagem como
-               fundo desfocado para preencher as laterais sem cortar nada. -->
-          <div class="game-cover has-art" style="--cover: url('media/capa-brainrot-fighters.webp')">
-            <img src="media/capa-brainrot-fighters.webp" alt="Brainrot Fighters" loading="lazy" width="768" height="768">
-          </div>
-          <div class="game-body">
-            <div class="game-head">
-              <h3 class="game-title">Brainrot Fighters</h3>
-              <span class="game-status is-live">
-                <span class="status-dot"></span>
-                <span data-i18n="status_live">Publicado</span>
-              </span>
-            </div>
-            <span class="game-genre" data-i18n="game_fighters_genre">Anime fighters · Gacha e progressão</span>
-            <p class="game-desc" data-i18n="game_fighters_desc">Anime fighters com o elenco inteiro trocado por brainrots: os lutadores invocados, os NPCs e os chefes. O jogador invoca brainrots aleatórios, monta e treina a equipe e avança por ilhas, comprando o acesso à seguinte ao juntar dinheiro suficiente.</p>
-            <ul class="game-tags">
-              <li class="game-tag" data-i18n="tag_gacha">Sistema gacha</li>
-              <li class="game-tag" data-i18n="tag_worlds">Progressão por ilhas</li>
-              <li class="game-tag" data-i18n="tag_bosses">Chefes</li>
-              <li class="game-tag" data-i18n="tag_team">Equipe de lutadores</li>
-              <li class="game-tag" data-i18n="tag_grind">Farm e evolução</li>
-            </ul>
-            <a class="game-cta" href="https://www.roblox.com/games/110201073612870/Brainrot-Fighters" target="_blank" rel="noopener">
-              <span data-i18n="play_roblox">Jogar na Roblox</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-              </svg>
+            <a href="https://discord.com/users/krymus" target="_blank" rel="noopener" class="btn btn-ghost">
+              <span data-i18n="btn_discord">Falar no Discord</span>
             </a>
           </div>
-        </article>
+        </div>
 
-        <!-- Roube Amazonia oculto a pedido; remover o hidden para voltar -->
-        <article class="game-card" hidden>
-          <!-- Mesma situação da outra capa: arte quadrada em slot 16:9. -->
-          <div class="game-cover has-art" style="--cover: url('media/capa-roube-amazonia.webp')">
-            <img src="media/capa-roube-amazonia.webp" alt="Roube Amazônia" loading="lazy" width="768" height="768">
+        <dl class="hero-stats anim-rise delay-4">
+          <div class="hero-stat">
+            <dt data-i18n="stat_years">Anos no Roblox</dt>
+            <dd>2+</dd>
           </div>
-          <div class="game-body">
-            <div class="game-head">
-              <h3 class="game-title">Roube Amazônia <span class="game-title-gloss" data-i18n="game_amazonia_gloss"></span></h3>
-              <span class="game-status is-live">
-                <span class="status-dot"></span>
-                <span data-i18n="status_beta">Beta aberto</span>
-              </span>
-            </div>
-            <span class="game-genre" data-i18n="game_amazonia_genre">Roube um brainrot · PvP e renda passiva</span>
-            <p class="game-desc" data-i18n="game_amazonia_desc">Multiplayer competitivo ambientado na Amazônia. O jogador expande o território, coleciona criaturas que vão da fauna comum a seres lendários e gera renda com o acervo. Invade bases rivais para roubar as peças mais valiosas e defende a própria, com mutações raras e Lucky Blocks escondidos pelo mapa.</p>
-            <ul class="game-tags">
-              <li class="game-tag">PvP</li>
-              <li class="game-tag" data-i18n="tag_income">Renda passiva</li>
-              <li class="game-tag" data-i18n="tag_raid">Invasão de base</li>
-              <li class="game-tag" data-i18n="tag_territory">Defesa de território</li>
-              <li class="game-tag" data-i18n="tag_collection">Coleção de criaturas</li>
-              <li class="game-tag" data-i18n="tag_mutations">Mutações</li>
-              <li class="game-tag">Lucky Blocks</li>
-            </ul>
-            <a class="game-cta" href="https://www.roblox.com/games/79923583704032/ROUBE-AMAZONIA" target="_blank" rel="noopener">
-              <span data-i18n="play_roblox">Jogar na Roblox</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-              </svg>
-            </a>
+          <div class="hero-stat">
+            <dt data-i18n="stat_game">Jogo no ar</dt>
+            <dd>1</dd>
           </div>
-        </article>
+          <div class="hero-stat">
+            <dt data-i18n="card_response">Tempo de resposta</dt>
+            <dd>&lt; 24h</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
-    <!-- SYSTEMS -->
-    <section id="systems" class="section">
-      <div class="section-header">
-        <div>
-          <span class="section-number" data-i18n="sec_02">02 / trabalhos</span>
-          <h2 class="section-title" data-i18n="sec_systems">Sistemas</h2>
-          <p class="section-subtitle" data-i18n="sec_systems_sub">Sistemas que desenvolvi no Roblox Studio, gravados em teste real.</p>
-        </div>
-      </div>
-
-      <div class="systems-grid">
-        <article class="system-card">
-          <div class="system-media">
-            <video class="system-video"
-                   muted loop playsinline preload="none"
-                   poster="media/server-match-teleport.jpg"
-                   src="media/server-match-teleport.mp4"
-                   data-duration="11.4"
-                   data-title="Server Match Teleport"></video>
-            <div class="video-controls">
-              <!-- aria-label é reescrito pelo JS conforme o vídeo toca ou pausa -->
-              <button class="vc-play" aria-label="Pausar">
-                <svg class="icon-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                  <rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>
-                </svg>
-                <svg class="icon-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z"/>
-                </svg>
-              </button>
-              <div class="vc-track" role="slider" tabindex="0"
-                   aria-label="Posição do vídeo" data-i18n-aria="aria_seek"
-                   aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                <div class="vc-fill"><span class="vc-handle"></span></div>
-              </div>
-              <span class="vc-time">0:00 / 0:11</span>
-              <button class="system-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/>
-                </svg>
-              </button>
-            </div>
-          </div>
-          <div class="system-body">
-            <h3 class="system-title">Server Match Teleport</h3>
-            <p class="system-desc" data-i18n="sys_teleport_desc">Sistema de matchmaking que forma a fila, aguarda os jogadores necessários e teleporta todos juntos para um servidor exclusivo da partida. A interface mostra o status da busca e a fila em tempo real, com opção de cancelar.</p>
-            <ul class="system-tags">
-              <li class="system-tag">TeleportService</li>
-              <li class="system-tag" data-i18n="tag_matchmaking">Matchmaking</li>
-              <li class="system-tag" data-i18n="tag_queue">Fila de jogadores</li>
-              <li class="system-tag" data-i18n="tag_reserved">Servidor exclusivo</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="system-card">
-          <div class="system-media">
-            <video class="system-video"
-                   muted loop playsinline preload="none"
-                   poster="media/sistema-agarrar-arremessar.jpg"
-                   src="media/sistema-agarrar-arremessar.mp4"
-                   data-duration="50.75"
-                   data-title="Sistema de Agarrar e Arremessar"></video>
-            <div class="video-controls">
-              <!-- aria-label é reescrito pelo JS conforme o vídeo toca ou pausa -->
-              <button class="vc-play" aria-label="Pausar">
-                <svg class="icon-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                  <rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>
-                </svg>
-                <svg class="icon-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z"/>
-                </svg>
-              </button>
-              <div class="vc-track" role="slider" tabindex="0"
-                   aria-label="Posição do vídeo" data-i18n-aria="aria_seek"
-                   aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                <div class="vc-fill"><span class="vc-handle"></span></div>
-              </div>
-              <span class="vc-time">0:00 / 0:50</span>
-              <button class="system-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/>
-                </svg>
-              </button>
-            </div>
-          </div>
-          <div class="system-body">
-            <h3 class="system-title" data-i18n="sys_grab_title">Sistema de Agarrar e Arremessar</h3>
-            <p class="system-desc" data-i18n="sys_grab_desc">Física de manipulação de objetos: o jogador agarra, ajusta a distância, gira e arremessa. O HUD mostra o peso e a distância do item segurado, e uma loja de melhorias amplia alcance, força de agarre, potência do arremesso e mobilidade, pagas com as moedas do jogo.</p>
-            <ul class="system-tags">
-              <li class="system-tag" data-i18n="tag_physics">Física</li>
-              <li class="system-tag" data-i18n="tag_grab">Agarrar e arremessar</li>
-              <li class="system-tag" data-i18n="tag_shop">Loja de melhorias</li>
-              <li class="system-tag" data-i18n="tag_progress">Progressão</li>
-              <li class="system-tag" data-i18n="tag_hud">HUD dinâmico</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="system-card">
-          <div class="system-media">
-            <video class="system-video"
-                   muted loop playsinline preload="none"
-                   poster="media/sistema-combate.jpg"
-                   src="media/sistema-combate.mp4"
-                   data-duration="15.8"
-                   data-title="Sistema de Combate"></video>
-            <div class="video-controls">
-              <!-- aria-label é reescrito pelo JS conforme o vídeo toca ou pausa -->
-              <button class="vc-play" aria-label="Pausar">
-                <svg class="icon-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                  <rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>
-                </svg>
-                <svg class="icon-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z"/>
-                </svg>
-              </button>
-              <div class="vc-track" role="slider" tabindex="0"
-                   aria-label="Posição do vídeo" data-i18n-aria="aria_seek"
-                   aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                <div class="vc-fill"><span class="vc-handle"></span></div>
-              </div>
-              <span class="vc-time">0:00 / 0:16</span>
-              <button class="system-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/>
-                </svg>
-              </button>
-            </div>
-          </div>
-          <div class="system-body">
-            <h3 class="system-title" data-i18n="sys_combat_title">Sistema de Combate</h3>
-            <p class="system-desc" data-i18n="sys_combat_desc">Combate corpo a corpo com combo de três variações de soco encadeadas. O personagem corre e executa dash, com barras de vida e stamina controlando o gasto de cada ação.</p>
-            <ul class="system-tags">
-              <li class="system-tag" data-i18n="tag_combo">Combo de 3 golpes</li>
-              <li class="system-tag">Dash</li>
-              <li class="system-tag" data-i18n="tag_sprint">Corrida</li>
-              <li class="system-tag">Stamina</li>
-              <li class="system-tag" data-i18n="tag_hit">Detecção de acerto</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="system-card">
-          <div class="system-media">
-            <video class="system-video"
-                   muted loop playsinline preload="none"
-                   poster="media/sistema-veiculo-transito.jpg"
-                   src="media/sistema-veiculo-transito.mp4"
-                   data-duration="46.6"
-                   data-title="Sistema de Veículo e Trânsito"></video>
-            <div class="video-controls">
-              <!-- aria-label é reescrito pelo JS conforme o vídeo toca ou pausa -->
-              <button class="vc-play" aria-label="Pausar">
-                <svg class="icon-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                  <rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>
-                </svg>
-                <svg class="icon-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z"/>
-                </svg>
-              </button>
-              <div class="vc-track" role="slider" tabindex="0"
-                   aria-label="Posição do vídeo" data-i18n-aria="aria_seek"
-                   aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                <div class="vc-fill"><span class="vc-handle"></span></div>
-              </div>
-              <span class="vc-time">0:00 / 0:46</span>
-              <button class="system-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/>
-                </svg>
-              </button>
-            </div>
-          </div>
-          <div class="system-body">
-            <h3 class="system-title" data-i18n="sys_vehicle_title">Sistema de Veículo e Trânsito</h3>
-            <p class="system-desc" data-i18n="sys_vehicle_desc">Direção com câmbio, controle de tração, ABS e drift alternáveis, com painel de rotação e velocidade. Um sistema de trânsito acompanha o limite da via e aplica pontos e multas por infração, com menus de concessionária, garagem, DMV e histórico de autuações.</p>
-            <ul class="system-tags">
-              <li class="system-tag" data-i18n="tag_vehicle">Física de veículo</li>
-              <li class="system-tag" data-i18n="tag_gearbox">Câmbio e tração</li>
-              <li class="system-tag" data-i18n="tag_speedlimit">Limite de velocidade</li>
-              <li class="system-tag" data-i18n="tag_fines">Pontos e multas</li>
-              <li class="system-tag" data-i18n="tag_dealership">Concessionária e garagem</li>
-            </ul>
-          </div>
-        </article>
+    <section class="tools" aria-label="Ferramentas" data-i18n-aria="aria_tools">
+      <div class="container tools-inner">
+        <span class="tools-label" data-i18n="tools_label">Ferramentas</span>
+        <ul class="tools-list">
+          <li class="tool">Blender</li>
+          <li class="tool">Roblox Studio</li>
+        </ul>
       </div>
     </section>
 
-    <!-- MODELAGEM -->
-    <section id="models" class="section">
-      <div class="section-header">
-        <div>
-          <span class="section-number" data-i18n="sec_models_n">03 / modelagem</span>
-          <h2 class="section-title" data-i18n="sec_models">Modelagem 3D</h2>
-          <p class="section-subtitle" data-i18n="sec_models_sub">Modelos que fiz no Blender para jogos na Roblox. Clique para ver girando.</p>
-        </div>
-      </div>
+    <section id="models" class="section" data-tone="blue">
+      <div class="container">
+        <header class="sec-head reveal">
+          <h2 class="sec-title" data-i18n="sec_models">Modelos e personagens</h2>
+          <p class="sec-sub" data-i18n="sec_models_sub">Personagens, armas, itens e cenários feitos no Blender para jogos na Roblox. Clique em um card para ver o modelo girando.</p>
+        </header>
 
-      <div class="reel-grid">
-        <figure class="reel-card">
-          <div class="reel-media">
-            <img class="reel-still" src="media/m-kai.webp" alt="" loading="lazy"
-                 data-hd="media/m-kai-hd.mp4">
-            <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="mod_kai">Kai (Kung Fu Panda 3)</figcaption>
-        </figure>
-
-        <figure class="reel-card">
-          <div class="reel-media">
-            <img class="reel-still" src="media/m-kai-laminas.webp" alt="" loading="lazy"
-                 data-hd="media/m-kai-laminas-hd.mp4">
-            <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="mod_kai_laminas">Lâminas do Kai</figcaption>
-        </figure>
-
-        <figure class="reel-card">
-          <div class="reel-media">
-            <img class="reel-still" src="media/m-baus-2.webp" alt="" loading="lazy"
-                 data-hd="media/m-baus-2-hd.mp4">
-            <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="mod_baus">Baús de Tesouro</figcaption>
-        </figure>
-
-        <figure class="reel-card">
-          <div class="reel-media">
-            <img class="reel-still" src="media/m-espadas.webp" alt="" loading="lazy"
-                 data-hd="media/m-espadas-hd.mp4">
-            <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="mod_espadas">Espadas por Raridade</figcaption>
-        </figure>
-
-        <figure class="reel-card">
-          <div class="reel-media">
-            <img class="reel-still" src="media/m-bolas.webp" alt="" loading="lazy"
-                 data-hd="media/m-bolas-hd.mp4">
-            <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="mod_bolas">Bolas de Captura</figcaption>
-        </figure>
-
-        <figure class="reel-card">
-          <div class="reel-media">
-            <img class="reel-still" src="media/m-pets.webp" alt="" loading="lazy"
-                 data-hd="media/m-pets-hd.mp4">
-            <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="mod_pets">Pets por Raridade</figcaption>
-        </figure>
-
-        <figure class="reel-card">
-          <div class="reel-media">
-            <img class="reel-still" src="media/m-slimes.webp" alt="" loading="lazy"
-                 data-hd="media/m-slimes-hd.mp4">
-            <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="mod_slimes">Evolução de Slimes</figcaption>
-        </figure>
-
-        <figure class="reel-card">
-          <div class="reel-media">
-            <img class="reel-still" src="media/m-ak47.webp" alt="" loading="lazy"
-                 data-hd="media/m-ak47-hd.mp4">
-            <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="mod_ak47">AK-47</figcaption>
-        </figure>
-
-        <figure class="reel-card">
-          <div class="reel-media">
-            <img class="reel-still" src="media/m-pistola.webp" alt="" loading="lazy"
-                 data-hd="media/m-pistola-hd.mp4">
-            <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="mod_pistola">Pistola</figcaption>
-        </figure>
-
-        <figure class="reel-card">
-          <div class="reel-media">
-            <img class="reel-still" src="media/m-escopeta.webp" alt="" loading="lazy"
-                 data-hd="media/m-escopeta-hd.mp4">
-            <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="mod_escopeta">Escopeta</figcaption>
-        </figure>
-
-        <figure class="reel-card">
-          <div class="reel-media">
-            <img class="reel-still" src="media/m-sniper.webp" alt="" loading="lazy"
-                 data-hd="media/m-sniper-hd.mp4">
-            <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="mod_sniper">Sniper</figcaption>
-        </figure>
-
-        <figure class="reel-card">
-          <div class="reel-media">
-            <img class="reel-still" src="media/m-militares-cerimonia.webp" alt="" loading="lazy"
-                 data-hd="media/m-militares-cerimonia-hd.mp4">
-            <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="mod_cerimonia">Itens de Cerimônia</figcaption>
-        </figure>
-
-        <figure class="reel-card">
-          <div class="reel-media">
-            <img class="reel-still" src="media/m-militares-medico.webp" alt="" loading="lazy"
-                 data-hd="media/m-militares-medico-hd.mp4">
-            <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="mod_medico">Itens de Campo</figcaption>
-        </figure>
-
-        <figure class="reel-card">
-          <div class="reel-media">
-            <img class="reel-still" src="media/m-ugc.webp" alt="" loading="lazy"
-                 data-hd="media/m-ugc-hd.mp4">
-            <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="mod_ugc">Acessórios UGC</figcaption>
-        </figure>
-
-        <figure class="reel-card">
-          <div class="reel-media">
-            <img class="reel-still" src="media/m-brasil.webp" alt="" loading="lazy"
-                 data-hd="media/m-brasil-hd.mp4">
-            <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="mod_brasil">Orelhão, Pipoca e Banca</figcaption>
-        </figure>
-
-        <figure class="reel-card">
-          <div class="reel-media">
-            <img class="reel-still" src="media/m-tycoon-pecas.webp" alt="" loading="lazy"
-                 data-hd="media/m-tycoon-pecas-hd.mp4">
-            <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="mod_tycoon">Peças de Tycoon</figcaption>
-        </figure>
-
-        <figure class="reel-card">
-          <div class="reel-media">
-            <img class="reel-still" src="media/m-roda-3.webp" alt="" loading="lazy"
-                 data-hd="media/m-roda-3-hd.mp4">
-            <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="mod_roda">Roda Apex</figcaption>
-        </figure>
-
-        <figure class="reel-card">
-          <div class="reel-media">
-            <img class="reel-still" src="media/m-cidade-3.webp" alt="" loading="lazy"
-                 data-hd="media/m-cidade-3-hd.mp4">
-            <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="mod_cidade">Cidade Zumbi</figcaption>
-        </figure>
-
-        <figure class="reel-card">
-          <div class="reel-media">
-            <img class="reel-still" src="media/m-ferramentas-2.webp" alt="" loading="lazy"
-                 data-hd="media/m-ferramentas-2-hd.mp4">
-            <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="mod_ferramentas">Ferramentas de Fazenda</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- UI & ART -->
-    <section id="ui" class="section">
-      <div class="section-header">
-        <div>
-          <span class="section-number" data-i18n="sec_03">04 / interface</span>
-          <h2 class="section-title" data-i18n="sec_ui">UI &amp; Arte</h2>
-          <p class="section-subtitle" data-i18n="sec_ui_sub">Interfaces e assets visuais que criei para jogos na Roblox.</p>
-        </div>
-      </div>
-
-      <div class="ui-grid">
-        <figure class="ui-card">
-          <div class="ui-media">
-            <img src="media/ui-titulos.webp" alt="Tela de títulos" loading="lazy" width="673" height="442">
-          </div>
-          <figcaption class="ui-caption">
-            <span class="ui-name" data-i18n="ui_titles">Títulos</span>
-            <span class="ui-note" data-i18n="ui_titles_note">Lista de títulos com três estados: bloqueado, disponível para equipar e equipado. Cada linha mostra a condição de desbloqueio.</span>
-          </figcaption>
-        </figure>
-
-        <figure class="ui-card">
-          <div class="ui-media">
-            <img src="media/ui-passes-vip.webp" alt="Loja de passes e VIP" loading="lazy" width="1265" height="798">
-          </div>
-          <figcaption class="ui-caption">
-            <span class="ui-name" data-i18n="ui_passes">Loja de Passes &amp; VIP</span>
-            <span class="ui-note" data-i18n="ui_passes_note">Menu de monetização com GamePasses, pacote múltiplo e assinatura mensal.</span>
-          </figcaption>
-        </figure>
-
-        <figure class="ui-card">
-          <div class="ui-media">
-            <img src="media/ui-inventario-fighters.webp" alt="Inventário de lutadores" loading="lazy" width="634" height="391">
-          </div>
-          <figcaption class="ui-caption">
-            <span class="ui-name" data-i18n="ui_inventory">Inventário de Lutadores</span>
-            <span class="ui-note" data-i18n="ui_inventory_note">Tela de gerenciamento com abas de filtro, contagem de equipados e molduras por raridade.</span>
-          </figcaption>
-        </figure>
-
-        <figure class="ui-card">
-          <div class="ui-media ui-media-contain">
-            <img src="media/ui-slot-dourado.webp" alt="Slot de item dourado" loading="lazy" width="728" height="975">
-          </div>
-          <figcaption class="ui-caption">
-            <span class="ui-name" data-i18n="ui_slot">Slot de Item Dourado</span>
-            <span class="ui-note" data-i18n="ui_slot_note">Moldura de inventário para itens de raridade alta.</span>
-          </figcaption>
-        </figure>
-
-      </div>
-    </section>
-
-
-    <!-- ANIMACOES -->
-    <section id="animations" class="section">
-      <div class="section-header">
-        <div>
-          <span class="section-number" data-i18n="sec_anim_n">05 / animação</span>
-          <h2 class="section-title" data-i18n="sec_anim">Animação</h2>
-          <p class="section-subtitle" data-i18n="sec_anim_sub">Peças em movimento, não só girando para mostrar o modelo.</p>
-        </div>
-      </div>
-
-      <div class="reel-grid reel-grid-wide">
-        <figure class="reel-card">
-          <div class="reel-media">
-            <video class="reel-video" muted loop playsinline preload="none"
-                   poster="media/a-bau-abrindo.jpg" src="media/a-bau-abrindo.mp4" data-hd="media/a-bau-abrindo-hd.mp4"></video>
-            <button class="reel-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="ani_bau">Baú Lendário Abrindo</figcaption>
-        </figure>
-
-        <figure class="reel-card">
-          <div class="reel-media">
-            <video class="reel-video" muted loop playsinline preload="none"
-                   poster="media/a-slimes-pulando.jpg" src="media/a-slimes-pulando.mp4" data-hd="media/a-slimes-pulando-hd.mp4"></video>
-            <button class="reel-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="ani_slimes">Slimes Pulando</figcaption>
-        </figure>
-
-        <figure class="reel-card">
-          <div class="reel-media">
-            <video class="reel-video" muted loop playsinline preload="none"
-                   poster="media/a-tycoon-linha.jpg" src="media/a-tycoon-linha.mp4" data-hd="media/a-tycoon-linha-hd.mp4"></video>
-            <button class="reel-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="ani_tycoon">Linha de Produção</figcaption>
-        </figure>
-
-        <figure class="reel-card">
-          <div class="reel-media">
-            <video class="reel-video" muted loop playsinline preload="none"
-                   poster="media/a-bandeira-vento.jpg" src="media/a-bandeira-vento.mp4" data-hd="media/a-bandeira-vento-hd.mp4"></video>
-            <button class="reel-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="ani_bandeira">Bandeira ao Vento</figcaption>
-        </figure>
-
-        <figure class="reel-card">
-          <div class="reel-media">
-            <video class="reel-video" muted loop playsinline preload="none"
-                   poster="media/a-campo-uso.jpg" src="media/a-campo-uso.mp4" data-hd="media/a-campo-uso-hd.mp4"></video>
-            <button class="reel-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
-            </button>
-          </div>
-          <figcaption class="reel-name" data-i18n="ani_campo">Itens de Campo em Uso</figcaption>
-        </figure>
+            <div class="reel-grid">
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-cidade-3.webp" alt="" loading="lazy"
+                       data-hd="media/m-cidade-3-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_cidade">Mapa da Cidade Zumbi</figcaption>
+              </figure>
+      
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-sobrevivencia.webp" alt="" loading="lazy"
+                       data-hd="media/m-sobrevivencia-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_sobrevivencia">Props de Sobrevivência</figcaption>
+              </figure>
+      
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-scooter.webp" alt="" loading="lazy"
+                       data-hd="media/m-scooter-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_scooter">Patinete Elétrico</figcaption>
+              </figure>
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-lobo.webp" alt="" loading="lazy"
+                       data-hd="media/m-lobo-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_lobo">Lobo de Fogo</figcaption>
+              </figure>
+      
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-cozinha.webp" alt="" loading="lazy"
+                       data-hd="media/m-cozinha-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_cozinha">Cozinha Low Poly</figcaption>
+              </figure>
+      
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-ak47.webp" alt="" loading="lazy"
+                       data-hd="media/m-ak47-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_ak47">AK-47</figcaption>
+              </figure>
+      
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-pets.webp" alt="" loading="lazy"
+                       data-hd="media/m-pets-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_pets">Pets por Raridade</figcaption>
+              </figure>
+      
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-brasil.webp" alt="" loading="lazy"
+                       data-hd="media/m-brasil-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_brasil">Orelhão, Pipoca e Banca</figcaption>
+              </figure>
+      
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-sniper.webp" alt="" loading="lazy"
+                       data-hd="media/m-sniper-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_sniper">Sniper</figcaption>
+              </figure>
+      
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-escopeta.webp" alt="" loading="lazy"
+                       data-hd="media/m-escopeta-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_escopeta">Escopeta</figcaption>
+              </figure>
+      
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-pistola.webp" alt="" loading="lazy"
+                       data-hd="media/m-pistola-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_pistola">Pistola</figcaption>
+              </figure>
+      
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-slimes.webp" alt="" loading="lazy"
+                       data-hd="media/m-slimes-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_slimes">Evolução do Slime</figcaption>
+              </figure>
+      
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-roda-3.webp" alt="" loading="lazy"
+                       data-hd="media/m-roda-3-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_roda">Roda Esportiva</figcaption>
+              </figure>
+      
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-tycoon-pecas.webp" alt="" loading="lazy"
+                       data-hd="media/m-tycoon-pecas-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_tycoon">Peças de Tycoon</figcaption>
+              </figure>
+      
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-kai-laminas.webp" alt="" loading="lazy"
+                       data-hd="media/m-kai-laminas-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_kai_laminas">Lâminas de Jade do Kai</figcaption>
+              </figure>
+      
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-baus-2.webp" alt="" loading="lazy"
+                       data-hd="media/m-baus-2-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_baus">Baús de Tesouro</figcaption>
+              </figure>
+      
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-ugc-rainbow.webp" alt="" loading="lazy"
+                       data-hd="media/m-ugc-rainbow-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_ugc_rainbow">Acessórios UGC Rainbow</figcaption>
+              </figure>
+      
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-ugc.webp" alt="" loading="lazy"
+                       data-hd="media/m-ugc-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_ugc">Acessórios UGC</figcaption>
+              </figure>
+      
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-espadas.webp" alt="" loading="lazy"
+                       data-hd="media/m-espadas-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_espadas">Espadas por Raridade</figcaption>
+              </figure>
+      
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-militares-cerimonia.webp" alt="" loading="lazy"
+                       data-hd="media/m-militares-cerimonia-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_cerimonia">Kit Militar de Cerimônia</figcaption>
+              </figure>
+      
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-militares-medico.webp" alt="" loading="lazy"
+                       data-hd="media/m-militares-medico-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_medico">Kit Militar de Sobrevivência</figcaption>
+              </figure>
+      
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-ferramentas-2.webp" alt="" loading="lazy"
+                       data-hd="media/m-ferramentas-2-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_ferramentas">Ferramentas de Fazenda</figcaption>
+              </figure>
+      
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-picaretas.webp" alt="" loading="lazy"
+                       data-hd="media/m-picaretas-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_picaretas">Picaretas</figcaption>
+              </figure>
+      
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-bolas.webp" alt="" loading="lazy"
+                       data-hd="media/m-bolas-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_bolas">Bolas de Captura</figcaption>
+              </figure>
+      
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <img class="reel-still" src="media/m-salgadinho.webp" alt="" loading="lazy"
+                       data-hd="media/m-salgadinho-hd.mp4">
+                  <button class="reel-expand" aria-label="Ver girando" data-i18n-aria="aria_spin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="mod_salgadinho">Salgadinho Krunzo</figcaption>
+              </figure>
+            </div>
+          
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section contact-section">
-      <div class="contact-glow"></div>
+    <section id="animations" class="section" data-tone="gold">
+      <div class="container">
+        <header class="sec-head reveal">
+          <h2 class="sec-title" data-i18n="sec_anim">Peças em movimento</h2>
+          <p class="sec-sub" data-i18n="sec_anim_sub">Animações feitas para os modelos: baús que abrem, slimes que pulam, uma linha de produção e itens em uso.</p>
+        </header>
 
-      <div class="contact-intro">
-        <span class="section-number" data-i18n="sec_04">06 / contato</span>
-        <h2 class="contact-title">
-          <span data-i18n="contact_title">Vamos criar</span><br>
-          <span class="glow" data-i18n="contact_title_2">algo.</span>
-        </h2>
-        <p class="contact-description">
-          <span data-i18n="contact_desc">Disponível para freelance na Roblox. Baseado em Toledo, Paraná.</span>
-        </p>
-        <div class="location-badge">
-          <span class="pulse-dot"></span>
-          <span class="location-name">TOLEDO</span>
-          <span class="location-time" id="clock">--:--:--</span>
-          <span class="location-tz">(UTC-3)</span>
-        </div>
-        <p class="contact-hint">
-          <span data-i18n="contact_hint">Ao entrar em contato, inclua uma visão geral do projeto, os sistemas necessários e o prazo esperado. Isso ajuda bastante no escopo.</span>
-        </p>
+            <div class="reel-grid reel-grid-wide">
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <video class="reel-video" muted loop playsinline preload="none"
+                         poster="media/a-tycoon-linha.jpg" src="media/a-tycoon-linha.mp4" data-hd="media/a-tycoon-linha-hd.mp4"></video>
+                  <button class="reel-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="ani_tycoon">Linha de Produção do Tycoon</figcaption>
+              </figure>
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <video class="reel-video" muted loop playsinline preload="none"
+                         poster="media/a-campo-uso.jpg" src="media/a-campo-uso.mp4" data-hd="media/a-campo-uso-hd.mp4"></video>
+                  <button class="reel-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="ani_campo">Kit de Sobrevivência em Uso</figcaption>
+              </figure>
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <video class="reel-video" muted loop playsinline preload="none"
+                         poster="media/a-bau-abrindo.jpg" src="media/a-bau-abrindo.mp4" data-hd="media/a-bau-abrindo-hd.mp4"></video>
+                  <button class="reel-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="ani_bau">Baú Lendário Abrindo</figcaption>
+              </figure>
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <video class="reel-video" muted loop playsinline preload="none"
+                         poster="media/a-slimes-pulando.jpg" src="media/a-slimes-pulando.mp4" data-hd="media/a-slimes-pulando-hd.mp4"></video>
+                  <button class="reel-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="ani_slimes">Slimes Pulando</figcaption>
+              </figure>
+      
+              <figure class="reel-card">
+                <div class="reel-media">
+                  <video class="reel-video" muted loop playsinline preload="none"
+                         poster="media/a-bandeira-vento.jpg" src="media/a-bandeira-vento.mp4" data-hd="media/a-bandeira-vento-hd.mp4"></video>
+                  <button class="reel-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                  </button>
+                </div>
+                <figcaption class="reel-name" data-i18n="ani_bandeira">Bandeira ao Vento</figcaption>
+              </figure>
+            </div>
+          
       </div>
+    </section>
 
-      <div class="contact-list">
-        <div class="contact-row">
-          <div class="contact-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/>
-              <rect x="2" y="4" width="20" height="16" rx="2"/>
-            </svg>
+    <section id="games" class="section" data-tone="green">
+      <div class="container">
+        <header class="sec-head reveal">
+          <p class="sec-kicker"><span class="sec-past" data-i18n="past_work">Trabalho anterior</span></p>
+          <h2 class="sec-title" data-i18n="sec_games">Jogo que programei</h2>
+        </header>
+
+            <div class="games-grid">
+              <article class="game-card">
+                <!-- A arte é quadrada e o slot é 16:9. --cover repete a imagem como
+                     fundo desfocado para preencher as laterais sem cortar nada. -->
+                <div class="game-cover has-art" style="--cover: url('media/capa-brainrot-fighters.webp')">
+                  <img src="media/capa-brainrot-fighters.webp" alt="Brainrot Fighters" loading="lazy" width="768" height="768">
+                </div>
+                <div class="game-body">
+                  <div class="game-head">
+                    <h3 class="game-title">Brainrot Fighters</h3>
+                    <span class="game-status is-live">
+                      <span class="status-dot"></span>
+                      <span data-i18n="status_live">Publicado</span>
+                    </span>
+                  </div>
+                  <span class="game-genre" data-i18n="game_fighters_genre">Anime fighters · Gacha e progressão</span>
+                  <p class="game-role" data-i18n="game_fighters_role">Meu papel: programação, como sócio do jogo</p>
+                  <p class="game-desc" data-i18n="game_fighters_desc">Anime fighters com o elenco inteiro trocado por brainrots: os lutadores invocados, os NPCs e os chefes. O jogador invoca brainrots aleatórios, monta e treina a equipe e avança por ilhas, comprando o acesso à seguinte ao juntar dinheiro suficiente.</p>
+                  <ul class="game-tags">
+                    <li class="game-tag" data-i18n="tag_gacha">Sistema gacha</li>
+                    <li class="game-tag" data-i18n="tag_worlds">Progressão por ilhas</li>
+                    <li class="game-tag" data-i18n="tag_bosses">Chefes</li>
+                    <li class="game-tag" data-i18n="tag_team">Equipe de lutadores</li>
+                    <li class="game-tag" data-i18n="tag_grind">Farm e evolução</li>
+                  </ul>
+                  <a class="game-cta" href="https://www.roblox.com/games/110201073612870/Brainrot-Fighters" target="_blank" rel="noopener">
+                    <span data-i18n="play_roblox">Jogar na Roblox</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+      
+              <!-- Roube Amazonia oculto a pedido; remover o hidden para voltar -->
+              <article class="game-card" hidden>
+                <!-- Mesma situação da outra capa: arte quadrada em slot 16:9. -->
+                <div class="game-cover has-art" style="--cover: url('media/capa-roube-amazonia.webp')">
+                  <img src="media/capa-roube-amazonia.webp" alt="Roube Amazônia" loading="lazy" width="768" height="768">
+                </div>
+                <div class="game-body">
+                  <div class="game-head">
+                    <h3 class="game-title">Roube Amazônia <span class="game-title-gloss" data-i18n="game_amazonia_gloss"></span></h3>
+                    <span class="game-status is-live">
+                      <span class="status-dot"></span>
+                      <span data-i18n="status_beta">Beta aberto</span>
+                    </span>
+                  </div>
+                  <span class="game-genre" data-i18n="game_amazonia_genre">Roube um brainrot · PvP e renda passiva</span>
+                  <p class="game-desc" data-i18n="game_amazonia_desc">Multiplayer competitivo ambientado na Amazônia. O jogador expande o território, coleciona criaturas que vão da fauna comum a seres lendários e gera renda com o acervo. Invade bases rivais para roubar as peças mais valiosas e defende a própria, com mutações raras e Lucky Blocks escondidos pelo mapa.</p>
+                  <ul class="game-tags">
+                    <li class="game-tag">PvP</li>
+                    <li class="game-tag" data-i18n="tag_income">Renda passiva</li>
+                    <li class="game-tag" data-i18n="tag_raid">Invasão de base</li>
+                    <li class="game-tag" data-i18n="tag_territory">Defesa de território</li>
+                    <li class="game-tag" data-i18n="tag_collection">Coleção de criaturas</li>
+                    <li class="game-tag" data-i18n="tag_mutations">Mutações</li>
+                    <li class="game-tag">Lucky Blocks</li>
+                  </ul>
+                  <a class="game-cta" href="https://www.roblox.com/games/79923583704032/ROUBE-AMAZONIA" target="_blank" rel="noopener">
+                    <span data-i18n="play_roblox">Jogar na Roblox</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+            </div>
+          
+      </div>
+    </section>
+
+    <section id="systems" class="section" data-tone="red">
+      <div class="container">
+        <header class="sec-head reveal">
+          <p class="sec-kicker"><span class="sec-past" data-i18n="past_work">Trabalho anterior</span></p>
+          <h2 class="sec-title" data-i18n="sec_systems">Sistemas em ação</h2>
+          <p class="sec-sub" data-i18n="sec_systems_sub">Sistemas que desenvolvi no Roblox Studio, gravados em teste real.</p>
+        </header>
+
+            <div class="systems-grid">
+              <article class="system-card">
+                <div class="system-media">
+                  <video class="system-video"
+                         muted loop playsinline preload="none"
+                         poster="media/server-match-teleport.jpg"
+                         src="media/server-match-teleport.mp4"
+                         data-duration="11.4"
+                         data-title="Server Match Teleport"></video>
+                  <div class="video-controls">
+                    <!-- aria-label é reescrito pelo JS conforme o vídeo toca ou pausa -->
+                    <button class="vc-play" aria-label="Pausar">
+                      <svg class="icon-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>
+                      </svg>
+                      <svg class="icon-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z"/>
+                      </svg>
+                    </button>
+                    <div class="vc-track" role="slider" tabindex="0"
+                         aria-label="Posição do vídeo" data-i18n-aria="aria_seek"
+                         aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                      <div class="vc-fill"><span class="vc-handle"></span></div>
+                    </div>
+                    <span class="vc-time">0:00 / 0:11</span>
+                    <button class="system-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="system-body">
+                  <h3 class="system-title">Server Match Teleport</h3>
+                  <p class="system-desc" data-i18n="sys_teleport_desc">Sistema de matchmaking que forma a fila, aguarda os jogadores necessários e teleporta todos juntos para um servidor exclusivo da partida. A interface mostra o status da busca e a fila em tempo real, com opção de cancelar.</p>
+                  <ul class="system-tags">
+                    <li class="system-tag">TeleportService</li>
+                    <li class="system-tag" data-i18n="tag_matchmaking">Matchmaking</li>
+                    <li class="system-tag" data-i18n="tag_queue">Fila de jogadores</li>
+                    <li class="system-tag" data-i18n="tag_reserved">Servidor exclusivo</li>
+                  </ul>
+                </div>
+              </article>
+      
+              <article class="system-card">
+                <div class="system-media">
+                  <video class="system-video"
+                         muted loop playsinline preload="none"
+                         poster="media/sistema-agarrar-arremessar.jpg"
+                         src="media/sistema-agarrar-arremessar.mp4"
+                         data-duration="50.75"
+                         data-title="Sistema de Agarrar e Arremessar"></video>
+                  <div class="video-controls">
+                    <!-- aria-label é reescrito pelo JS conforme o vídeo toca ou pausa -->
+                    <button class="vc-play" aria-label="Pausar">
+                      <svg class="icon-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>
+                      </svg>
+                      <svg class="icon-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z"/>
+                      </svg>
+                    </button>
+                    <div class="vc-track" role="slider" tabindex="0"
+                         aria-label="Posição do vídeo" data-i18n-aria="aria_seek"
+                         aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                      <div class="vc-fill"><span class="vc-handle"></span></div>
+                    </div>
+                    <span class="vc-time">0:00 / 0:50</span>
+                    <button class="system-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="system-body">
+                  <h3 class="system-title" data-i18n="sys_grab_title">Sistema de Agarrar e Arremessar</h3>
+                  <p class="system-desc" data-i18n="sys_grab_desc">Física de manipulação de objetos: o jogador agarra, ajusta a distância, gira e arremessa. O HUD mostra o peso e a distância do item segurado, e uma loja de melhorias amplia alcance, força de agarre, potência do arremesso e mobilidade, pagas com as moedas do jogo.</p>
+                  <ul class="system-tags">
+                    <li class="system-tag" data-i18n="tag_physics">Física</li>
+                    <li class="system-tag" data-i18n="tag_grab">Agarrar e arremessar</li>
+                    <li class="system-tag" data-i18n="tag_shop">Loja de melhorias</li>
+                    <li class="system-tag" data-i18n="tag_progress">Progressão</li>
+                    <li class="system-tag" data-i18n="tag_hud">HUD dinâmico</li>
+                  </ul>
+                </div>
+              </article>
+      
+              <article class="system-card">
+                <div class="system-media">
+                  <video class="system-video"
+                         muted loop playsinline preload="none"
+                         poster="media/sistema-combate.jpg"
+                         src="media/sistema-combate.mp4"
+                         data-duration="15.8"
+                         data-title="Sistema de Combate"></video>
+                  <div class="video-controls">
+                    <!-- aria-label é reescrito pelo JS conforme o vídeo toca ou pausa -->
+                    <button class="vc-play" aria-label="Pausar">
+                      <svg class="icon-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>
+                      </svg>
+                      <svg class="icon-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z"/>
+                      </svg>
+                    </button>
+                    <div class="vc-track" role="slider" tabindex="0"
+                         aria-label="Posição do vídeo" data-i18n-aria="aria_seek"
+                         aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                      <div class="vc-fill"><span class="vc-handle"></span></div>
+                    </div>
+                    <span class="vc-time">0:00 / 0:16</span>
+                    <button class="system-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="system-body">
+                  <h3 class="system-title" data-i18n="sys_combat_title">Sistema de Combate</h3>
+                  <p class="system-desc" data-i18n="sys_combat_desc">Combate corpo a corpo com combo de três variações de soco encadeadas. O personagem corre e executa dash, com barras de vida e stamina controlando o gasto de cada ação.</p>
+                  <ul class="system-tags">
+                    <li class="system-tag" data-i18n="tag_combo">Combo de 3 golpes</li>
+                    <li class="system-tag">Dash</li>
+                    <li class="system-tag" data-i18n="tag_sprint">Corrida</li>
+                    <li class="system-tag">Stamina</li>
+                    <li class="system-tag" data-i18n="tag_hit">Detecção de acerto</li>
+                  </ul>
+                </div>
+              </article>
+      
+              <article class="system-card">
+                <div class="system-media">
+                  <video class="system-video"
+                         muted loop playsinline preload="none"
+                         poster="media/sistema-veiculo-transito.jpg"
+                         src="media/sistema-veiculo-transito.mp4"
+                         data-duration="46.6"
+                         data-title="Sistema de Veículo e Trânsito"></video>
+                  <div class="video-controls">
+                    <!-- aria-label é reescrito pelo JS conforme o vídeo toca ou pausa -->
+                    <button class="vc-play" aria-label="Pausar">
+                      <svg class="icon-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>
+                      </svg>
+                      <svg class="icon-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z"/>
+                      </svg>
+                    </button>
+                    <div class="vc-track" role="slider" tabindex="0"
+                         aria-label="Posição do vídeo" data-i18n-aria="aria_seek"
+                         aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                      <div class="vc-fill"><span class="vc-handle"></span></div>
+                    </div>
+                    <span class="vc-time">0:00 / 0:46</span>
+                    <button class="system-expand" aria-label="Expandir vídeo" data-i18n-aria="aria_expand">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="system-body">
+                  <h3 class="system-title" data-i18n="sys_vehicle_title">Sistema de Veículo e Trânsito</h3>
+                  <p class="system-desc" data-i18n="sys_vehicle_desc">Direção com câmbio, controle de tração, ABS e drift alternáveis, com painel de rotação e velocidade. Um sistema de trânsito acompanha o limite da via e aplica pontos e multas por infração, com menus de concessionária, garagem, DMV e histórico de autuações.</p>
+                  <ul class="system-tags">
+                    <li class="system-tag" data-i18n="tag_vehicle">Física de veículo</li>
+                    <li class="system-tag" data-i18n="tag_gearbox">Câmbio e tração</li>
+                    <li class="system-tag" data-i18n="tag_speedlimit">Limite de velocidade</li>
+                    <li class="system-tag" data-i18n="tag_fines">Pontos e multas</li>
+                    <li class="system-tag" data-i18n="tag_dealership">Concessionária e garagem</li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+          
+      </div>
+    </section>
+
+    <section id="ui" class="section" data-tone="orange">
+      <div class="container">
+        <header class="sec-head reveal">
+          <p class="sec-kicker"><span class="sec-past" data-i18n="past_work">Trabalho anterior</span></p>
+          <h2 class="sec-title" data-i18n="sec_ui">UI &amp; Arte</h2>
+          <p class="sec-sub" data-i18n="sec_ui_sub">Interfaces e assets visuais que criei para jogos na Roblox.</p>
+        </header>
+
+            <div class="ui-grid">
+              <figure class="ui-card">
+                <div class="ui-media">
+                  <img src="media/ui-titulos.webp" alt="Tela de títulos" loading="lazy" width="673" height="442">
+                </div>
+                <figcaption class="ui-caption">
+                  <span class="ui-name" data-i18n="ui_titles">Títulos</span>
+                  <span class="ui-note" data-i18n="ui_titles_note">Lista de títulos com três estados: bloqueado, disponível para equipar e equipado. Cada linha mostra a condição de desbloqueio.</span>
+                </figcaption>
+              </figure>
+      
+              <figure class="ui-card">
+                <div class="ui-media">
+                  <img src="media/ui-passes-vip.webp" alt="Loja de passes e VIP" loading="lazy" width="1265" height="798">
+                </div>
+                <figcaption class="ui-caption">
+                  <span class="ui-name" data-i18n="ui_passes">Loja de Passes &amp; VIP</span>
+                  <span class="ui-note" data-i18n="ui_passes_note">Menu de monetização com GamePasses, pacote múltiplo e assinatura mensal.</span>
+                </figcaption>
+              </figure>
+      
+              <figure class="ui-card">
+                <div class="ui-media">
+                  <img src="media/ui-inventario-fighters.webp" alt="Inventário de lutadores" loading="lazy" width="634" height="391">
+                </div>
+                <figcaption class="ui-caption">
+                  <span class="ui-name" data-i18n="ui_inventory">Inventário de Lutadores</span>
+                  <span class="ui-note" data-i18n="ui_inventory_note">Tela de gerenciamento com abas de filtro, contagem de equipados e molduras por raridade.</span>
+                </figcaption>
+              </figure>
+      
+              <figure class="ui-card">
+                <div class="ui-media ui-media-contain">
+                  <img src="media/ui-slot-dourado.webp" alt="Slot de item dourado" loading="lazy" width="728" height="975">
+                </div>
+                <figcaption class="ui-caption">
+                  <span class="ui-name" data-i18n="ui_slot">Slot de Item Dourado</span>
+                  <span class="ui-note" data-i18n="ui_slot_note">Moldura de inventário para itens de raridade alta.</span>
+                </figcaption>
+              </figure>
+      
+            </div>
+          
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section" data-tone="gold">
+      <div class="container contact-grid">
+        <div class="contact-intro reveal">
+          <h2 class="contact-title">
+            <span data-i18n="contact_title">Vamos criar</span>
+            <span class="contact-title-brick" data-i18n="contact_title_2">algo.</span>
+          </h2>
+          <p class="contact-description" data-i18n="contact_desc">Disponível para modelagem 3D e animação. Baseado em Toledo, Paraná.</p>
+          <div class="location-badge">
+            <span class="location-name">TOLEDO</span>
+            <span class="location-time" id="clock">--:--:--</span>
+            <span class="location-tz">(UTC-3)</span>
           </div>
-          <div class="contact-info">
-            <span class="contact-label" data-i18n="lbl_email">E-mail</span>
-            <span class="contact-value">krysthianbar7@gmail.com</span>
-            <span class="contact-hint-text" data-i18n="hint_email">Canal alternativo. Para propostas, prefira o Discord</span>
-          </div>
-          <div class="contact-line"></div>
-          <a href="mailto:krysthianbar7@gmail.com" class="contact-btn">
-            <span data-i18n="btn_send_email">Enviar e-mail</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
-            </svg>
-          </a>
+          <p class="contact-hint" data-i18n="contact_hint">Ao entrar em contato, conte o que precisa ser modelado ou animado, o estilo desejado e o prazo. Isso ajuda a responder mais rápido.</p>
         </div>
 
-        <div class="contact-row">
-          <div class="contact-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
-            </svg>
-          </div>
-          <div class="contact-info">
-            <span class="contact-label" data-i18n="lbl_discord">Discord</span>
-            <span class="contact-value">krymus</span>
-            <span class="contact-hint-text" data-i18n="hint_discord">Preferido para propostas de projeto</span>
-          </div>
-          <div class="contact-line"></div>
-          <a href="https://discord.com/users/krymus" target="_blank" rel="noopener" class="contact-btn">
-            <span data-i18n="btn_add">Adicionar</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
-            </svg>
-          </a>
-        </div>
+        <div class="contact-list reveal">
+          <div class="contact-row is-preferred">
+                    <div class="contact-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                      </svg>
+                    </div>
+                    <div class="contact-info">
+                      <span class="contact-label"><span data-i18n="lbl_discord">Discord</span><span class="contact-flag" data-i18n="flag_preferred">Preferido</span></span>
+                      <span class="contact-value">krymus</span>
+                      <span class="contact-hint-text" data-i18n="hint_discord">Preferido para propostas de projeto</span>
+                    </div>
+                    <a href="https://discord.com/users/krymus" target="_blank" rel="noopener" class="contact-btn">
+                      <span data-i18n="btn_add">Adicionar</span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+                      </svg>
+                    </a>
+                  </div>
 
-        <div class="contact-row">
-          <div class="contact-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path fill-rule="evenodd" d="M3.7 8.1 L15.9 3.7 L20.3 15.9 L8.1 20.3 Z M9.1 10.6 L13.4 9.1 L14.9 13.4 L10.6 14.9 Z"/>
-            </svg>
-          </div>
-          <div class="contact-info">
-            <span class="contact-label" data-i18n="lbl_roblox">Roblox</span>
-            <span class="contact-value">noobbatata4</span>
-            <span class="contact-hint-text" data-i18n="hint_roblox">Meu perfil na plataforma</span>
-          </div>
-          <div class="contact-line"></div>
-          <a href="https://www.roblox.com/users/1022065737/profile" target="_blank" rel="noopener" class="contact-btn">
-            <span data-i18n="btn_view_profile">Ver perfil</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
-            </svg>
-          </a>
+          <div class="contact-row">
+                    <div class="contact-icon">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/>
+                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                      </svg>
+                    </div>
+                    <div class="contact-info">
+                      <span class="contact-label" data-i18n="lbl_email">E-mail</span>
+                      <span class="contact-value">krysthianbar7@gmail.com</span>
+                      <span class="contact-hint-text" data-i18n="hint_email">Canal alternativo. Para propostas, prefira o Discord</span>
+                    </div>
+                    <a href="mailto:krysthianbar7@gmail.com" class="contact-btn">
+                      <span data-i18n="btn_send_email">Enviar e-mail</span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+                      </svg>
+                    </a>
+                  </div>
+
+          <div class="contact-row">
+                    <div class="contact-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3.7 8.1 L15.9 3.7 L20.3 15.9 L8.1 20.3 Z M9.1 10.6 L13.4 9.1 L14.9 13.4 L10.6 14.9 Z"/>
+                      </svg>
+                    </div>
+                    <div class="contact-info">
+                      <span class="contact-label" data-i18n="lbl_roblox">Roblox</span>
+                      <span class="contact-value">noobbatata4</span>
+                      <span class="contact-hint-text" data-i18n="hint_roblox">Meu perfil na plataforma</span>
+                    </div>
+                    <a href="https://www.roblox.com/users/1022065737/profile" target="_blank" rel="noopener" class="contact-btn">
+                      <span data-i18n="btn_view_profile">Ver perfil</span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+                      </svg>
+                    </a>
+                  </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <span>© 2026 Krysthian</span>
-    <span>krysthianbar7@gmail.com</span>
+    <div class="footer-studs" aria-hidden="true"></div>
+    <div class="container footer-inner">
+      <span>© 2026 Krysthian</span>
+      <span>krysthianbar7@gmail.com</span>
+    </div>
   </footer>
 
   <!-- LIGHTBOX -->
@@ -843,6 +902,6 @@
     <img class="lightbox-img" id="lightbox-img" alt="" hidden>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2026-10-14"></script>
 </body>
 </html>
